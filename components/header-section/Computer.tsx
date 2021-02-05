@@ -5,10 +5,11 @@ import {
 	TextContainer,
 	Text,
 } from './Computer.styled';
-import { useSlowType } from '../hooks/useSlowType';
+import { useLocalization, useSlowType } from '../hooks';
 
 export const Computer: React.FC = () => {
-	const currentText = useSlowType('Hello world!', 7, '> ', 0.5);
+	const localization = useLocalization().headerSection;
+	const currentText = useSlowType(localization.computerMessage, 7, '> ', 0.5);
 	
 	return (
 		<ComputerContainer>
