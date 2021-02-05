@@ -1,24 +1,6 @@
-export interface ITheme {
-	colors: {
-		primary: string;
-		accent: string;
-		background: string;
-		text: {
-			header: string;
-			body: string;
-			button: string;
-			input: string;
-			inputPlaceholder: string;
-		}
-	},
-	fonts: {
-		header: string;
-		body: string;
-		computer: string;
-	}
-}
+import { DefaultTheme } from 'styled-components';
 
-export const defaultTheme: ITheme = {
+export const defaultTheme: DefaultTheme = {
 	colors: {
 		primary: '#778585',
 		accent: '#F72D26',
