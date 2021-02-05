@@ -32,8 +32,8 @@ export const defaultTheme: ITheme = {
 		}
 	},
 	fonts: {
-		header: '',
-		body: '',
-		computer: '',
+		header: '72px 600 Saira Condensed',
+		body: '24px Saira Condensed',
+		computer: '24px 600 Source Code Pro',
 	}
 };
