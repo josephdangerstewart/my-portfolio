@@ -20,6 +20,6 @@ declare module 'styled-components' {
 			header: string;
 			body: string;
 			computer: string;
-		}
+		},
 	}
 }
