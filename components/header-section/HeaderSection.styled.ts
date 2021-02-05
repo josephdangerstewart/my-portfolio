@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const SectionRoot = styled.div`
+export const SectionRoot = styled.section`
 	padding-bottom: 32px;
 `;
 

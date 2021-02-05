@@ -3,7 +3,8 @@ import { ThemeProvider } from 'styled-components';
 import { defaultTheme } from './themes';
 import { HeaderSection } from './header-section';
 import { PageBackground, GlobalStyle } from './Portfolio.styled';
-import { LocalizationProvider } from './hooks/useLocalization';
+import { LocalizationProvider } from './hooks';
+import { AboutMeSection } from './about-section';
 
 export const Portfolio: React.FC = () => (
 	<ThemeProvider theme={defaultTheme}>
@@ -11,6 +12,7 @@ export const Portfolio: React.FC = () => (
 			<PageBackground>
 				<GlobalStyle />
 				<HeaderSection />
+				<AboutMeSection />
 			</PageBackground>
 		</LocalizationProvider>
 	</ThemeProvider>
