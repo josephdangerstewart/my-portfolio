@@ -36,4 +36,4 @@ export const defaultTheme: ITheme = {
 		body: '',
 		computer: '',
 	}
-}
+};
