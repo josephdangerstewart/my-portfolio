@@ -1,7 +1,7 @@
+import { Portfolio } from '../components/Portfolio';
+
 export default function Home() {
 	return (
-		<div>
-			Hi :P
-		</div>
-	)
+		<Portfolio />
+	);
 }
