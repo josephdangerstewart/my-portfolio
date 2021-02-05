@@ -1,13 +1,18 @@
 import React from 'react';
-import { Title, TitleContainer } from './HeaderSection.styled';
+import {
+	Title,
+	TitleContainer,
+	SectionRoot,
+} from './HeaderSection.styled';
+import { Computer } from './Computer';
 
 export const HeaderSection: React.FC = () => {
 	return (
-		<div>
+		<SectionRoot>
 			<TitleContainer>
 				<Title>Joseph Stewart</Title>
 			</TitleContainer>
-			<p>Here will be a fun little animation of a computer</p>
-		</div>
+			<Computer />
+		</SectionRoot>
 	);
 };

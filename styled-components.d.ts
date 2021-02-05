@@ -14,6 +14,7 @@ declare module 'styled-components' {
 				button: string;
 				input: string;
 				inputPlaceholder: string;
+				computer: string;
 			}
 		},
 		fonts: {
