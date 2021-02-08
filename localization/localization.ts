@@ -1,7 +1,7 @@
 export interface ILocalizedProject {
 	title: string;
 	thumbnailUrl: string;
-	shortDescription: string;
+	content: string;
 }
 
 export interface ILocalizedResources {

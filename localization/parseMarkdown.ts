@@ -6,7 +6,7 @@ export function parseProject(project: string): ILocalizedProject {
 	console.log(parsedContent);
 	return {
 		title: parsedContent.metadata?.title as string ?? null,
-		shortDescription: '',
+		content: parsedContent.content ?? null,
 		thumbnailUrl: '',
 	};
 }
