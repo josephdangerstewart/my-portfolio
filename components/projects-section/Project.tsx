@@ -1,6 +1,12 @@
 import React from 'react';
 import { ILocalizedProject } from '../../localization/localization';
-import { Thumbnail, Title, Description, ProjectContainer } from './Project.styled';
+import {
+	Thumbnail,
+	Title,
+	Description,
+	ProjectContainer,
+	TitleLink,
+} from './Project.styled';
 
 interface ProjectProps {
 	project: ILocalizedProject;
@@ -10,7 +16,11 @@ export const Project: React.FC<ProjectProps> = ({ project }) => (
 	<ProjectContainer>
 		<Thumbnail />
 		<Title>
-			{project.title}
+			{project.url ? (
+				<TitleLink href={project.url} target="_blank" rel="noopener noreferrer">
+					{project.title}
+				</TitleLink>
+			) : project.title}
 		</Title>
 		<Description>
 			{project.content}

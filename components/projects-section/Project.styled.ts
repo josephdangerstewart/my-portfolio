@@ -14,6 +14,15 @@ export const Title = styled.h2`
 	word-break: break-word;
 `;
 
+export const TitleLink = styled.a`
+	color: ${({ theme }) => theme.colors.text.header};
+	text-decoration: none;
+
+	&:hover {
+		text-decoration: underline;
+	}
+`;
+
 export const Description = styled.p`
 	max-width: 300px;
 	margin: 0 auto;

@@ -8,5 +8,6 @@ export function parseProject(project: string): ILocalizedProject {
 		title: parsedContent.metadata?.title as string ?? null,
 		content: parsedContent.content ?? null,
 		thumbnailUrl: '',
+		url: parsedContent.metadata?.url as string ?? null,
 	};
 }
