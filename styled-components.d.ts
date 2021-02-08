@@ -19,6 +19,7 @@ declare module 'styled-components' {
 		},
 		fonts: {
 			header: string;
+			subheader: string;
 			body: string;
 			computer: string;
 		},

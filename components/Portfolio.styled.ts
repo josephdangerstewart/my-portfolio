@@ -22,6 +22,10 @@ export const GlobalStyle = createGlobalStyle`
 		font: ${({ theme }) => theme.fonts.header};
 	}
 
+	h2 {
+		font: ${({ theme }) => theme.fonts.subheader};
+	}
+
 	p {
 		font: ${({ theme }) => theme.fonts.body};
 		color: ${({ theme }) => theme.colors.text.body};
