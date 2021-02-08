@@ -11,6 +11,7 @@ export const Thumbnail = styled.div`
 export const Title = styled.h2`
 	margin: 32px 0;
 	text-align: center;
+	word-break: break-word;
 `;
 
 export const Description = styled.p`
