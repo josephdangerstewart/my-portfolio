@@ -5,6 +5,7 @@ import { HeaderSection } from './header-section';
 import { PageBackground, GlobalStyle } from './Portfolio.styled';
 import { LocalizationProvider } from './hooks';
 import { AboutMeSection } from './about-section';
+import { ProjectsSection } from './projects-section';
 
 export const Portfolio: React.FC = () => (
 	<ThemeProvider theme={defaultTheme}>
@@ -13,6 +14,7 @@ export const Portfolio: React.FC = () => (
 				<GlobalStyle />
 				<HeaderSection />
 				<AboutMeSection />
+				<ProjectsSection />
 			</PageBackground>
 		</LocalizationProvider>
 	</ThemeProvider>

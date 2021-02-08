@@ -3,7 +3,10 @@ export interface ILocalizedResources {
 		computerMessage: string;
 	},
 	aboutMeSection: {
-		aboutMeTitle: string;
+		title: string;
 		bio: string;
+	},
+	projectsSection: {
+		title: string;
 	}
 }

@@ -9,7 +9,7 @@ export const AboutMeSection: React.FC = () => {
 
 	return (
 		<SectionRoot>
-			<SectionHeader>{localization.aboutMeTitle}</SectionHeader>
+			<SectionHeader>{localization.title}</SectionHeader>
 			<EmojiTextContainer>
 				<EmojiTextBlock text={localization.bio} />
 			</EmojiTextContainer>

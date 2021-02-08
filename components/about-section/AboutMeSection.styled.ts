@@ -1,8 +1,8 @@
 import styled from 'styled-components';
+import { SectionRoot as DefaultSectionRoot } from '../common';
 
-export const SectionRoot = styled.section`
+export const SectionRoot = styled(DefaultSectionRoot)`
 	background-color: ${({ theme }) => theme.colors.primary};
-	padding: 16px 0;
 `;
 
 export const EmojiTextContainer = styled.div`
