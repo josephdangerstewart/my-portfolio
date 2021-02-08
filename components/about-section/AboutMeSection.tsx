@@ -1,7 +1,8 @@
 import React from 'react';
 import { useLocalization } from '../hooks';
-import { SectionRoot } from './AboutMeSection.styled';
+import { SectionRoot, EmojiTextContainer } from './AboutMeSection.styled';
 import { SectionHeader } from '../common';
+import { EmojiTextBlock } from './EmojiTextBlock';
 
 export const AboutMeSection: React.FC = () => {
 	const localization = useLocalization().aboutMeSection;
@@ -9,6 +10,9 @@ export const AboutMeSection: React.FC = () => {
 	return (
 		<SectionRoot>
 			<SectionHeader>{localization.aboutMeTitle}</SectionHeader>
+			<EmojiTextContainer>
+				<EmojiTextBlock text={localization.bio} />
+			</EmojiTextContainer>
 		</SectionRoot>
 	);
 };
