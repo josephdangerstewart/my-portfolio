@@ -4,6 +4,7 @@ import { parseProject } from '../parseMarkdown';
 
 import campaignBuddy from './content/projects/campaignBuddy.md';
 import landOfEmunah from './content/projects/landOfEmunah.md';
+import hannahsPortfolio from './content/projects/hannahsPortfolio.md';
 
 const enUS: ILocalizedResources = {
 	headerSection: {
@@ -18,6 +19,7 @@ const enUS: ILocalizedResources = {
 		projects: [
 			parseProject(campaignBuddy),
 			parseProject(landOfEmunah),
+			parseProject(hannahsPortfolio),
 		]
 	}
 };
