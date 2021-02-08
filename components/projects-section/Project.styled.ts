@@ -18,3 +18,15 @@ export const Description = styled.p`
 	margin: 0 auto;
 	padding: 0 16px;
 `;
+
+export const ProjectContainer = styled.div`
+	margin: 40px 0;
+
+	&:first-child {
+		margin-top: 0;
+	}
+
+	&:last-child {
+		margin-bottom: 0;
+	}
+`;

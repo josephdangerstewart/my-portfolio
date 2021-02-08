@@ -1,13 +1,13 @@
 import React from 'react';
 import { ILocalizedProject } from '../../localization/localization';
-import { Thumbnail, Title, Description } from './Project.styled';
+import { Thumbnail, Title, Description, ProjectContainer } from './Project.styled';
 
 interface ProjectProps {
 	project: ILocalizedProject;
 }
 
 export const Project: React.FC<ProjectProps> = ({ project }) => (
-	<div>
+	<ProjectContainer>
 		<Thumbnail />
 		<Title>
 			{project.title}
@@ -15,5 +15,5 @@ export const Project: React.FC<ProjectProps> = ({ project }) => (
 		<Description>
 			{project.content}
 		</Description>
-	</div>
+	</ProjectContainer>
 );

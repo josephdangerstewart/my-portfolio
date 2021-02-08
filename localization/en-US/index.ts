@@ -3,6 +3,7 @@ import bio from './content/bio.txt';
 import { parseProject } from '../parseMarkdown';
 
 import campaignBuddy from './content/projects/campaignBuddy.md';
+import landOfEmunah from './content/projects/landOfEmunah.md';
 
 const enUS: ILocalizedResources = {
 	headerSection: {
@@ -16,6 +17,7 @@ const enUS: ILocalizedResources = {
 		title: 'Projects',
 		projects: [
 			parseProject(campaignBuddy),
+			parseProject(landOfEmunah),
 		]
 	}
 };
