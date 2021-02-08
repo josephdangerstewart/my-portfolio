@@ -43,7 +43,7 @@ interface IEmojiText {
 
 function parseEmojiTextBlocks(text: string): (string | IEmojiText)[][] {
 	return text
-		.split('\n\n')
+		.split(/\r?\n\r?\n/)
 		.map(parseEmojiText);
 }
 

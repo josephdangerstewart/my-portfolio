@@ -6,10 +6,15 @@ import { PageBackground, GlobalStyle } from './Portfolio.styled';
 import { LocalizationProvider } from './hooks';
 import { AboutMeSection } from './about-section';
 import { ProjectsSection } from './projects-section';
+import type { ILocalizedResources } from '../localization';
 
-export const Portfolio: React.FC = () => (
+interface PortfolioProps {
+	locale: ILocalizedResources;
+}
+
+export const Portfolio: React.FC<PortfolioProps> = ({ locale }) => (
 	<ThemeProvider theme={defaultTheme}>
-		<LocalizationProvider locale="enUS">
+		<LocalizationProvider locale={locale}>
 			<PageBackground>
 				<GlobalStyle />
 				<HeaderSection />

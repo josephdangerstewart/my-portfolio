@@ -1,26 +1,28 @@
 import { createContext, useContext } from 'react';
-import { ILocalizedResources, enUS } from '../../localization';
+import type { ILocalizedResources } from '../../localization';
 
-const locales = {
-	enUS,
-};
-
-const Context = createContext<ILocalizedResources>(enUS);
+const Context = createContext<ILocalizedResources>(undefined);
 const { Provider } = Context;
 
 export function useLocalization(): ILocalizedResources {
-	return useContext(Context);
+	const localization = useContext(Context);
+
+	if (!localization) {
+		throw new Error('Localization is missing');
+	}
+
+	return localization;
 }
 
 interface LocalizationProviderProps {
-	locale: keyof typeof locales
+	locale: ILocalizedResources;
 }
 
 export const LocalizationProvider: React.FC<LocalizationProviderProps> = ({
 	locale,
 	children,
 }) => (
-	<Provider value={locales[locale]}>
+	<Provider value={locale}>
 		{children}
 	</Provider>
 );
