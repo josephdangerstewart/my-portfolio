@@ -1,3 +1,9 @@
+export interface ILocalizedProject {
+	title: string;
+	thumbnailUrl: string;
+	shortDescription: string;
+}
+
 export interface ILocalizedResources {
 	headerSection: {
 		computerMessage: string;
@@ -8,5 +14,6 @@ export interface ILocalizedResources {
 	},
 	projectsSection: {
 		title: string;
-	}
+		projects: ILocalizedProject[];
+	},
 }
