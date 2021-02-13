@@ -5,6 +5,11 @@ export interface ILocalizedProject {
 	content: string;
 }
 
+export interface ILocalizedSkill {
+	skill: string;
+	proficiencyLevel: number;
+}
+
 export interface ILocalizedResources {
 	headerSection: {
 		computerMessage: string;
@@ -17,4 +22,8 @@ export interface ILocalizedResources {
 		title: string;
 		projects: ILocalizedProject[];
 	},
+	skillsSection: {
+		title: string;
+		skills: ILocalizedSkill[];
+	}
 }

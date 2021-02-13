@@ -21,6 +21,23 @@ const enUS: ILocalizedResources = {
 			parseProject(landOfEmunah),
 			parseProject(hannahsPortfolio),
 		]
+	},
+	skillsSection: {
+		title: 'Skills',
+		skills: [
+			{
+				skill: 'C# - Asp.NET',
+				proficiencyLevel: 3,
+			},
+			{
+				skill: 'Javascript - ReactJS',
+				proficiencyLevel: 5,
+			},
+			{
+				skill: 'SQL',
+				proficiencyLevel: 4,
+			}
+		]
 	}
 };
 

@@ -1,12 +1,14 @@
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
 import { defaultTheme } from './themes';
-import { HeaderSection } from './header-section';
-import { PageBackground, GlobalStyle } from './Portfolio.styled';
 import { LocalizationProvider } from './hooks';
+import type { ILocalizedResources } from '../localization';
+import { PageBackground, GlobalStyle } from './Portfolio.styled';
+
+import { HeaderSection } from './header-section';
 import { AboutMeSection } from './about-section';
 import { ProjectsSection } from './projects-section';
-import type { ILocalizedResources } from '../localization';
+import { SkillsSection } from './skills-section';
 
 interface PortfolioProps {
 	locale: ILocalizedResources;
@@ -20,6 +22,7 @@ export const Portfolio: React.FC<PortfolioProps> = ({ locale }) => (
 				<HeaderSection />
 				<AboutMeSection />
 				<ProjectsSection />
+				<SkillsSection />
 			</PageBackground>
 		</LocalizationProvider>
 	</ThemeProvider>
