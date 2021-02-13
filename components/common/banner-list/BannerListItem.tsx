@@ -1,4 +1,8 @@
 import React from 'react';
+import {
+	ListItem,
+	ListItemBullet,
+} from './BannerListItem.styled';
 
 interface BannerListItemProps {
 	text: string;
@@ -9,7 +13,8 @@ export const BannerListItem: React.FC<BannerListItemProps> = ({
 	text,
 	hoverText,
 }) => (
-	<li>
+	<ListItem>
 		<p>{text} ({hoverText})</p>
-	</li>
+		<ListItemBullet />
+	</ListItem>
 );

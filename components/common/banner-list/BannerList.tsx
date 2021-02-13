@@ -1,7 +1,8 @@
 import React from 'react';
+import { BannerListRoot } from './BannerList.styled';
 
 export const BannerList: React.FC = ({ children }) => (
-	<ul>
+	<BannerListRoot>
 		{children}
-	</ul>
+	</BannerListRoot>
 );

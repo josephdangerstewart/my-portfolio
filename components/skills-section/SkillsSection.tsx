@@ -6,6 +6,7 @@ import {
 	SectionRoot
 } from '../common';
 import { useLocalization } from '../hooks';
+import { ListWrapper } from './SkillsSection.styled';
 
 export const SkillsSection: React.FC = () => {
 	const localization = useLocalization().skillsSection;
@@ -13,15 +14,17 @@ export const SkillsSection: React.FC = () => {
 	return (
 		<SectionRoot>
 			<SectionHeader>{localization.title}</SectionHeader>
-			<BannerList>
-				{localization.skills.map(({ skill, proficiencyLevel }) => (
-					<BannerListItem
-						text={skill}
-						hoverText={`${proficiencyLevel}/5`}
-						key={skill}
-					/>
-				))}
-			</BannerList>
+			<ListWrapper>
+				<BannerList>
+					{localization.skills.map(({ skill, proficiencyLevel }) => (
+						<BannerListItem
+							text={skill}
+							hoverText={`${proficiencyLevel}/5`}
+							key={skill}
+						/>
+					))}
+				</BannerList>
+			</ListWrapper>
 		</SectionRoot>
 	);
 };
