@@ -8,6 +8,15 @@ declare module 'styled-components' {
 			primary: string;
 			accent: string;
 			background: string;
+			input: {
+				background: string;
+				backgroundActive: string;
+			}
+			button: {
+				background: string;
+				backgroundActive: string;
+				backgroundHover: string;
+			}
 			text: {
 				header: string;
 				body: string;

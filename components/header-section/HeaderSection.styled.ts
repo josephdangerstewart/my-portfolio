@@ -12,7 +12,7 @@ export const TitleContainer = styled.div`
 	background-color: ${({ theme }) => theme.colors.accent};
 	text-align: center;
 	padding: 36px 0 64px;
-	border-radius: 0 0 40% 40%;
+	border-radius: 0 0 50px 50px;
 	text-transform: uppercase;
 	margin-bottom: 64px;
 `;

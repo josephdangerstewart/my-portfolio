@@ -5,6 +5,15 @@ export const defaultTheme: DefaultTheme = {
 		primary: '#778585',
 		accent: '#C50D07',
 		background: '#1F1F1F',
+		input: {
+			background: '#CCCED1',
+			backgroundActive: '#CCCED1',
+		},
+		button: {
+			background: '#CCCED1',
+			backgroundActive: '#B4B4BB',
+			backgroundHover: '#DFDFE2',
+		},
 		text: {
 			header: '#EAEAEC',
 			body: '#FFFFFF',
