@@ -1,4 +1,7 @@
 import React, { useMemo } from 'react';
+import { EmojiTextContainer, EmojiTextEmoji, EmojiTextLabel } from './EmojiTextBlock.styled';
+import useDimensions from 'react-use-dimensions';
+import { Variants } from 'framer-motion';
 
 interface EmojiTextBlockProps {
 	text: string;
@@ -33,9 +36,36 @@ interface EmojiTextProps {
 	emojiText: IEmojiText;
 }
 
-const EmojiText: React.FC<EmojiTextProps> = ({ emojiText }) => (
-	<span>{emojiText.text} ({emojiText.emoji})</span>
-);
+const textVariants: Variants = {
+	rest: {
+		opacity: 1,
+	},
+	hover: {
+		opacity: 0,
+	}
+};
+
+const emojiVariants: Variants = {
+	rest: {
+		opacity: 0,
+	},
+	hover: {
+		opacity: 1,
+	}
+};
+
+const EmojiText: React.FC<EmojiTextProps> = ({ emojiText }) => {
+	const [ref, { width }] = useDimensions({ liveMeasure: false });
+
+	const emojiCount = !width ? 1 : Math.max(Math.floor(width / 35), 1);
+
+	return (
+		<EmojiTextContainer initial="rest" animate="rest" whileHover="hover">
+			<EmojiTextLabel variants={textVariants} ref={ref}>{emojiText.text}</EmojiTextLabel>
+			<EmojiTextEmoji variants={emojiVariants}>{emojiText.emoji.repeat(emojiCount)}</EmojiTextEmoji>
+		</EmojiTextContainer>
+	);
+};
 
 interface IEmojiText {
 	text: string;
