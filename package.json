@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@types/styled-components": "^5.1.7",
+    "framer-motion": "^3.3.0",
     "markdown-yaml-metadata-parser": "^3.0.0",
     "next": "10.0.6",
     "raw-loader": "^4.0.2",
