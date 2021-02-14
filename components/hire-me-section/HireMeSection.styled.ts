@@ -18,4 +18,7 @@ export const TaglineContainer = styled.h3`
 	line-height: 36px;
 	text-align: center;
 	margin: 24px 0 48px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 `;

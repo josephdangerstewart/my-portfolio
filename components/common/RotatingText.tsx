@@ -1,17 +1,25 @@
 import React, { useState, useRef, useEffect } from 'react';
 import styled from 'styled-components';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 
-const Container = styled(motion.span)<{ width: number; }>`
+const Container = styled.span<{ width: number; }>`
 	display: inline-block;
 	position: relative;
 	border-bottom: 2px solid ${({ theme }) => theme.colors.text.body};
 	width: ${({ width }) => width}px;
-	text-align: center;
 	margin: 0 8px;
+	height: 36px;
 `;
 
-const Text = styled(motion.span)``;
+const Text = styled(motion.span)`
+	display: block;
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	text-align: center;
+`;
 
 interface RotatingTextProps {
 	text: string[];
@@ -63,8 +71,18 @@ export const RotatingText: React.FC<RotatingTextProps> = ({
 	const currentText = text[index];
 
 	return (
-		<Container width={width}>
-			<Text>{currentText}</Text>
+		<Container width={width} aria-label={text[0]}>
+			<AnimatePresence>
+				<Text
+					aria-hidden
+					initial={{ translateY: -20, opacity: 0 }}
+					animate={{ translateY: 0, opacity: 1 }}
+					exit={{ translateY: 20, opacity: 0 }}
+					key={currentText}
+				>
+					{currentText}
+				</Text>
+			</AnimatePresence>
 		</Container>
 	);
 };

@@ -13,7 +13,7 @@ export const HireMeSection: React.FC = () => {
 		return (
 			<>
 				<span>{parts[0]}</span>
-				<RotatingText text={localization.tagline.items} width={130} delay={6} />
+				<RotatingText text={localization.tagline.items} width={130} delay={5} />
 				<span>{parts[1]}</span>
 			</>
 		);

@@ -57,7 +57,7 @@ const emojiVariants: Variants = {
 const EmojiText: React.FC<EmojiTextProps> = ({ emojiText }) => {
 	const [ref, { width }] = useDimensions({ liveMeasure: false });
 
-	const emojiCount = !width ? 1 : Math.max(Math.floor(width / 35), 1);
+	const emojiCount = !width ? 1 : Math.max(Math.floor(width / 40), 1);
 
 	return (
 		<EmojiTextContainer initial="rest" animate="rest" whileHover="hover">
