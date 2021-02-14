@@ -14,7 +14,7 @@ export const ProjectsSection: React.FC = () => {
 			</SectionHeader>
 			<ProjectsContainer>
 				{localization.projects.map(x => (
-					<Project project={x} />
+					<Project project={x} key={x.title} />
 				))}
 			</ProjectsContainer>
 		</SectionRoot>

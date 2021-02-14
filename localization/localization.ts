@@ -39,10 +39,13 @@ export interface ILocalizedResources {
 	hireMeSection: {
 		title: string;
 		subtitle: string;
-		tagline: string;
 		namePlaceholder: string;
 		emailPlaceholder: string;
 		descriptionPlaceholder: string;
 		submitButtonText: string;
+		tagline: {
+			template: string;
+			items: string[];
+		}
 	}
 }
