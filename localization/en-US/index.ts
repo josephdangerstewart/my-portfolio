@@ -58,6 +58,15 @@ const enUS: ILocalizedResources = {
 				proficiencyLevel: 4,
 			}
 		]
+	},
+	hireMeSection: {
+		title: 'Hire Me',
+		subtitle: 'Or just say hi!',
+		tagline: 'Bring your portfolio to life',
+		namePlaceholder: 'Name',
+		emailPlaceholder: 'Email',
+		descriptionPlaceholder: 'Your project idea here...',
+		submitButtonText: 'Submit',
 	}
 };
 

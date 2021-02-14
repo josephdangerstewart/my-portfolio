@@ -11,14 +11,15 @@ export const EmojiTextBlock: React.FC<EmojiTextBlockProps> = ({ text }) => {
 		<>
 			{parsedText.map(block => (
 				<p>
-					{block.map(content => {
+					{block.map((content, index) => {
 						if (typeof content === 'string') {
-							return <span>{content}</span>;
+							return <span key={index}>{content}</span>;
 						}
 
 						return (
 							<EmojiText
 								emojiText={content}
+								key={index}
 							/>
 						);
 					})}

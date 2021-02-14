@@ -35,5 +35,14 @@ export interface ILocalizedResources {
 	skillsSection: {
 		title: string;
 		skills: ILocalizedSkill[];
+	},
+	hireMeSection: {
+		title: string;
+		subtitle: string;
+		tagline: string;
+		namePlaceholder: string;
+		emailPlaceholder: string;
+		descriptionPlaceholder: string;
+		submitButtonText: string;
 	}
 }

@@ -10,6 +10,7 @@ import { AboutMeSection } from './about-section';
 import { ProjectsSection } from './projects-section';
 import { ExperienceSection } from './experience-section';
 import { SkillsSection } from './skills-section';
+import { HireMeSection } from './hire-me-section';
 
 interface PortfolioProps {
 	locale: ILocalizedResources;
@@ -25,6 +26,7 @@ export const Portfolio: React.FC<PortfolioProps> = ({ locale }) => (
 				<ProjectsSection />
 				<ExperienceSection />
 				<SkillsSection />
+				<HireMeSection />
 			</PageBackground>
 		</LocalizationProvider>
 	</ThemeProvider>
