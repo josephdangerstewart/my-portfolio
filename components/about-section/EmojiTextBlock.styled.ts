@@ -7,7 +7,7 @@ export const EmojiTextContainer = styled(motion.span)`
 `;
 
 export const EmojiTextLabel = styled(motion.span)`
-	font-weight: 800;
+	text-decoration: underline;
 	cursor: default;
 `;
 

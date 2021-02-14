@@ -62,7 +62,7 @@ const EmojiText: React.FC<EmojiTextProps> = ({ emojiText }) => {
 	return (
 		<EmojiTextContainer initial="rest" animate="rest" whileHover="hover">
 			<EmojiTextLabel variants={textVariants} ref={ref}>{emojiText.text}</EmojiTextLabel>
-			<EmojiTextEmoji variants={emojiVariants}>{emojiText.emoji.repeat(emojiCount)}</EmojiTextEmoji>
+			<EmojiTextEmoji aria-hidden variants={emojiVariants}>{emojiText.emoji.repeat(emojiCount)}</EmojiTextEmoji>
 		</EmojiTextContainer>
 	);
 };
