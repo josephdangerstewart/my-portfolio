@@ -22,6 +22,26 @@ const enUS: ILocalizedResources = {
 			parseProject(hannahsPortfolio),
 		]
 	},
+	experienceSection: {
+		title: 'Experience',
+		experience: [
+			{
+				place: 'FaithLife',
+				durationString: '2019 - present',
+				position: 'Web Developer',
+			},
+			{
+				place: 'National School Project',
+				durationString: '2017 - 2019',
+				position: 'IT Intern',
+			},
+			{
+				place: 'Biola University',
+				durationString: '2016 - 2020',
+				position: 'Bachelors of Science',
+			}
+		]
+	},
 	skillsSection: {
 		title: 'Skills',
 		skills: [

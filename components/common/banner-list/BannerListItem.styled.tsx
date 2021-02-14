@@ -8,6 +8,10 @@ export const ListItem = styled.li`
 	p {
 		margin: 0;
 	}
+
+	&:last-child {
+		margin-bottom: 0;
+	}
 `;
 
 export const ListItemBullet = styled.div`

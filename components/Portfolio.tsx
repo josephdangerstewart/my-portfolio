@@ -8,6 +8,7 @@ import { PageBackground, GlobalStyle } from './Portfolio.styled';
 import { HeaderSection } from './header-section';
 import { AboutMeSection } from './about-section';
 import { ProjectsSection } from './projects-section';
+import { ExperienceSection } from './experience-section';
 import { SkillsSection } from './skills-section';
 
 interface PortfolioProps {
@@ -22,6 +23,7 @@ export const Portfolio: React.FC<PortfolioProps> = ({ locale }) => (
 				<HeaderSection />
 				<AboutMeSection />
 				<ProjectsSection />
+				<ExperienceSection />
 				<SkillsSection />
 			</PageBackground>
 		</LocalizationProvider>
