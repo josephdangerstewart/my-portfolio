@@ -8,7 +8,7 @@ import { Transition, Variants } from 'framer-motion';
 
 interface BannerListItemProps {
 	text: string;
-	hoverText: string;
+	hoverText: string | React.ReactNode;
 }
 
 const transition: Transition = {
@@ -40,15 +40,19 @@ const hoverTextVariants: Variants = {
 export const BannerListItem: React.FC<BannerListItemProps> = ({
 	text,
 	hoverText,
-}) => (
-	<ListItem initial="rest" animate="rest" whileHover="hover" aria-label={`${text} - ${hoverText}`}>
-		<p aria-hidden>{text}</p>
-		<HoverTextContainer
-			variants={containerVariants}
-			transition={transition}
-			aria-hidden
-		>
-			<HoverText variants={hoverTextVariants}>{hoverText}</HoverText>
-		</HoverTextContainer>
-	</ListItem>
-);
+}) => {
+	const ariaLabel = typeof hoverText === 'string' ? `${text} - ${hoverText}` : text;
+
+	return (
+		<ListItem initial="rest" animate="rest" whileHover="hover" aria-label={ariaLabel}>
+			<p aria-hidden>{text}</p>
+			<HoverTextContainer
+				variants={containerVariants}
+				transition={transition}
+				aria-hidden
+			>
+				<HoverText variants={hoverTextVariants}>{hoverText}</HoverText>
+			</HoverTextContainer>
+		</ListItem>
+	);
+};
