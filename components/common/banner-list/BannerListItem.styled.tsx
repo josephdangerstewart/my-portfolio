@@ -14,7 +14,7 @@ export const HoverTextContainer = styled(motion.div)`
 	align-items: center;
 `;
 
-export const HoverText = styled.p`
+export const HoverText = styled(motion.p)`
 	white-space: nowrap;
 `;
 
@@ -25,6 +25,7 @@ export const ListItem = styled(motion.li)`
 
 	p {
 		margin: 0;
+		cursor: default;
 	}
 
 	${HoverText} {
