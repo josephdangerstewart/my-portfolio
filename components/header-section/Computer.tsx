@@ -12,9 +12,9 @@ export const Computer: React.FC = () => {
 	const currentText = useSlowType(localization.computerMessage, 7, '> ', 0.5);
 	
 	return (
-		<ComputerContainer>
-			<ComputerImage src="/computer.png" />
-			<TextContainer>
+		<ComputerContainer aria-label={localization.computerMessage}>
+			<ComputerImage src="/computer.png" aria-hidden />
+			<TextContainer aria-hidden>
 				<Text>{currentText}</Text>
 			</TextContainer>
 		</ComputerContainer>
