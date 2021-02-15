@@ -2,9 +2,12 @@ import { ILocalizedResources } from '../localization';
 import bio from './content/bio.txt';
 import { parseProject } from '../parseMarkdown';
 
-import campaignBuddy from './content/projects/campaignBuddy.md';
+// Waiting on campaign buddy util I actually start hosting it again
+// import campaignBuddy from './content/projects/campaignBuddy.md';
+import weddingWebsite from './content/projects/weddingWebsite.md';
 import landOfEmunah from './content/projects/landOfEmunah.md';
 import hannahsPortfolio from './content/projects/hannahsPortfolio.md';
+
 
 const enUS: ILocalizedResources = {
 	headerSection: {
@@ -17,7 +20,8 @@ const enUS: ILocalizedResources = {
 	projectsSection: {
 		title: 'Projects',
 		projects: [
-			parseProject(campaignBuddy),
+			// parseProject(campaignBuddy),
+			parseProject(weddingWebsite),
 			parseProject(landOfEmunah),
 			parseProject(hannahsPortfolio),
 		]
