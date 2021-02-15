@@ -1,6 +1,7 @@
 export interface ILocalizedProject {
 	title: string;
 	thumbnailUrl: string;
+	thumbnailAltText: string;
 	url: string;
 	content: string;
 }
