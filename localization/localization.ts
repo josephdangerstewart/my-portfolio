@@ -28,6 +28,8 @@ export interface ILocalizedResources {
 	projectsSection: {
 		title: string;
 		projects: ILocalizedProject[];
+		openExternalLink: string;
+		openExternalLinkAria: string;
 	},
 	experienceSection: {
 		title: string;

@@ -24,7 +24,9 @@ const enUS: ILocalizedResources = {
 			parseProject(weddingWebsite),
 			parseProject(landOfEmunah),
 			parseProject(hannahsPortfolio),
-		]
+		],
+		openExternalLink: 'Take a look!',
+		openExternalLinkAria: 'Open project in new tab',
 	},
 	experienceSection: {
 		title: 'Experience',
