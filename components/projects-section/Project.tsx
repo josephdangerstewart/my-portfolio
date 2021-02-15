@@ -14,7 +14,7 @@ interface ProjectProps {
 
 export const Project: React.FC<ProjectProps> = ({ project }) => (
 	<ProjectContainer>
-		<Thumbnail />
+		<Thumbnail src={project.thumbnailUrl} alt={project.thumbnailAltText} />
 		<Title>
 			{project.url ? (
 				<TitleLink href={project.url} target="_blank" rel="noopener noreferrer">

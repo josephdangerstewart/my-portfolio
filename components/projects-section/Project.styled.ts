@@ -1,6 +1,12 @@
 import styled from 'styled-components';
 
-export const Thumbnail = styled.div`
+interface ThumbnailProps {
+	src: string;
+}
+
+export const Thumbnail = styled.img<ThumbnailProps>`
+	display: block;
+	object-fit: cover;
 	background-color: ${({ theme }) => theme.colors.primary};
 	border-radius: 4px;
 	height: 225.5px;
