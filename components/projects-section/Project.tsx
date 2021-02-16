@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { ILocalizedProject } from '../../localization/localization';
 import {
 	Title,
@@ -16,8 +16,22 @@ interface ProjectProps {
 export const Project: React.FC<ProjectProps> = ({ project }) => {
 	const [isOpen, setIsOpen] = useState(false);
 
+	const toggleIsOpen = useCallback(() => {
+		setIsOpen(prev => {
+			const next = !prev;
+
+			if (next) {
+				document.body.style.overflow = 'hidden';
+			} else {
+				document.body.style.overflow = 'auto';
+			}
+
+			return next;
+		});
+	}, []);
+
 	return (
-		<ProjectContainer onClick={() => setIsOpen(prev => !prev)}>
+		<ProjectContainer onClick={toggleIsOpen}>
 			<ContentContainer isOpen={isOpen}>
 				<ProjectThumbnail
 					thumbnailUrl={project.thumbnailUrl}
