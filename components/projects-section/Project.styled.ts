@@ -1,46 +1,19 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { motion } from 'framer-motion';
 
-interface ThumbnailProps {
-	src: string;
-}
-
-export const ThumbnailContainer = styled(motion.div)`
-	position: relative;
-	max-width: 365px;
-	height: 225.5px;
-	margin: 0 auto;
-`;
-
-export const Thumbnail = styled.img<ThumbnailProps>`
-	display: block;
-	object-fit: cover;
-	background-color: ${({ theme }) => theme.colors.primary};
-	border-radius: 4px;
+const contentOpenStyles = css`
+	position: fixed;
+	top: 0;
+	left: 0;
 	width: 100%;
 	height: 100%;
+	overflow: auto;
+	z-index: 2;
+	background-color: ${({ theme }) => theme.colors.background};
 `;
 
-export const ExternalLinkOverlay = styled(motion.div)`
-	position: absolute;
-	top: 8px;
-	right: 8px;
-`;
-
-export const ExternalLinkIconContainer = styled(motion.a)`
-	color: ${({ theme }) => theme.colors.background};
-	display: inline-flex;
-	align-items: center;
-	text-decoration: none;
-`;
-
-export const ExternalLinkText = styled(motion.span)`
-	display: inline-block;
-	white-space: nowrap;
-	overflow: hidden;
-	font: ${({ theme }) => theme.fonts.body};
-	font-size: 16px;
-	margin-left: 4px;
+export const ContentContainer = styled(motion.div)<{ isOpen: boolean }>`
+	${({ isOpen }) => isOpen ? contentOpenStyles : ''}
 `;
 
 export const Title = styled.h2`

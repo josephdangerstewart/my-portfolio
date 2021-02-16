@@ -4,6 +4,7 @@ export interface ILocalizedProject {
 	thumbnailAltText: string;
 	url: string;
 	content: string;
+	shortDescription: string;
 }
 
 export interface ILocalizedSkill {
