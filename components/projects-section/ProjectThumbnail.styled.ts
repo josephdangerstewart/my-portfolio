@@ -12,7 +12,7 @@ export const ThumbnailContainer = styled(motion.div)`
 	margin: 0 auto;
 `;
 
-export const Thumbnail = styled.img<ThumbnailProps>`
+export const Thumbnail = styled(motion.img)<ThumbnailProps>`
 	display: block;
 	object-fit: cover;
 	background-color: ${({ theme }) => theme.colors.primary};

@@ -43,8 +43,8 @@ export const ProjectThumbnail: React.FC<ProjectThumbnailProps> = ({
 	const localization = useLocalization().projectsSection;
 
 	return (
-		<ThumbnailContainer initial="rest" animate="rest" whileHover="hover">
-			<Thumbnail src={thumbnailUrl} alt={thumbnailAltText} />
+		<ThumbnailContainer layout initial="rest" animate="rest" whileHover="hover">
+			<Thumbnail layout src={thumbnailUrl} alt={thumbnailAltText} />
 			<ExternalLinkOverlay variants={externalLinkOverlayVariants}>
 				<ExternalLinkIconContainer
 					href={url}
