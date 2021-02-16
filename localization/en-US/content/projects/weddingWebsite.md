@@ -2,7 +2,7 @@
 title: Wedding Announcement
 url: http://wearehunnyandthebee.com/
 shortDescription: wearehunnyandthebee.com is a website that I made with my (now) wife to announce our wedding plans.
-thumbnailUrl: https://res.cloudinary.com/josephdangerstewart/image/upload/v1613421596/joseph-likes-code/wedding-website/wedding-website-thumbnail.png
+thumbnailUrl: https://res.cloudinary.com/josephdangerstewart/image/upload/c_scale,q_auto:good,w_500/v1613421596/joseph-likes-code/wedding-website/wedding-website-thumbnail.png
 thumbnailAltText: wearehunnyandthebee.com logo screen
 ---
 

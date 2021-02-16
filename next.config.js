@@ -17,4 +17,8 @@ module.exports = {
 		locales: ['en-US'],
 		defaultLocale: 'en-US',
 	},
+	images: {
+		loader: 'cloudinary',
+		path: 'https://res.cloudinary.com/josephdangerstewart/'
+	}
 };

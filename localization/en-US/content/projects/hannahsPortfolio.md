@@ -2,7 +2,7 @@
 title: Art Portfolio
 url: https://hannahcreatesart.com/
 shortDescription: hannahcreatesart.com is my wifes art portfolio that she designed and I implemented/deployed.
-thumbnailUrl: https://res.cloudinary.com/josephdangerstewart/image/upload/v1613422013/joseph-likes-code/hannah-creates-art/hannah-creates-art-thumbnail.png
+thumbnailUrl: https://res.cloudinary.com/josephdangerstewart/image/upload/c_scale,q_auto:good,w_500/v1613422013/joseph-likes-code/hannah-creates-art/hannah-creates-art-thumbnail.png
 thumbnailAltText: hannahcreatesart.com homepage
 ---
 

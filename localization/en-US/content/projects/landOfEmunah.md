@@ -2,7 +2,7 @@
 title: Land of Emunah
 url: https://landofemunah.com/
 shortDescription: Land of Emunah is my wife's senior art show that her and her partner had to move online. I was responsible for the digital implementation of their design.
-thumbnailUrl: https://res.cloudinary.com/josephdangerstewart/image/upload/v1613421760/joseph-likes-code/land-of-emunah/land-of-emunah-thumbnail.png
+thumbnailUrl: https://res.cloudinary.com/josephdangerstewart/image/upload/c_scale,q_auto:good,w_500/v1613421760/joseph-likes-code/land-of-emunah/land-of-emunah-thumbnail.png
 thumbnailAltText: Land of Emunah welcome/description screen
 ---
 
