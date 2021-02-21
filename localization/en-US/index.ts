@@ -43,7 +43,7 @@ const enUS: ILocalizedResources = {
 			},
 			{
 				place: 'Biola University',
-				durationString: '2016 - 2020',
+				durationString: '2016 - 2019',
 				position: 'Bachelors of Science',
 			}
 		]

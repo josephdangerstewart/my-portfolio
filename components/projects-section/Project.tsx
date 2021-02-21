@@ -1,4 +1,5 @@
-import React, { useState, useCallback, useMemo } from 'react';
+import React, { useState, useCallback, useRef, useEffect } from 'react';
+import { useRouter } from 'next/router';
 import { ILocalizedProject } from '../../localization/localization';
 import {
 	Title,
@@ -6,49 +7,42 @@ import {
 	ProjectContainer,
 	ContentRoot,
 	ContentBackground,
-	ContentContainer,
 	ThumbnailTitleContainer,
 } from './Project.styled';
 import { ProjectContent } from './ProjectContent';
 import { ProjectThumbnail } from './ProjectThumbnail';
-import { TargetAndTransition, AnimatePresence } from 'framer-motion';
+import { AnimatePresence } from 'framer-motion';
 
 interface ProjectProps {
 	project: ILocalizedProject;
 }
 
-const initialContainerState = {
-	height: 0,
-};
-
 export const Project: React.FC<ProjectProps> = ({ project }) => {
-	const [isOpen, setIsOpen] = useState(false);
+	const router = useRouter();
+	const { projectName } = router.query;
+	const [isOpen, setIsOpen] = useState(project.title === projectName);
+
+	useEffect(() => {
+		if (isOpen) {
+			document.body.style.overflow = 'hidden';
+		} else {
+			document.body.style.overflow = 'auto';
+		}
+	}, [isOpen]);
 
 	const toggleIsOpen = useCallback(() => {
 		setIsOpen(prev => {
 			const next = !prev;
 
 			if (next) {
-				document.body.style.overflow = 'hidden';
+				router.push(`/?projectName=${encodeURIComponent(project.title)}`, undefined, { shallow: true });
 			} else {
-				document.body.style.overflow = 'auto';
+				router.push('/', undefined, { shallow: true });
 			}
 
 			return next;
 		});
-	}, []);
-
-	const containerAnimate = useMemo<TargetAndTransition>(() => {
-		if (isOpen) {
-			return {
-				height: 'fit-content',
-			};
-		} else {
-			return {
-				height: 0,
-			};
-		}
-	}, [isOpen]);
+	}, [router]);
 
 	return (
 		<ProjectContainer onClick={toggleIsOpen}>
@@ -64,11 +58,14 @@ export const Project: React.FC<ProjectProps> = ({ project }) => {
 							{project.title}
 						</Title>
 					</ThumbnailTitleContainer>
-					{isOpen && (
-						<AnimatePresence>
-							<ProjectContent content={project.content} />
-						</AnimatePresence>
-					)}
+					<AnimatePresence>
+						{isOpen && (
+							<ProjectContent
+								content={project.content}
+								isInitiallyOpened={project.title === projectName}
+							/>
+						)}
+					</AnimatePresence>
 				</ContentBackground>
 			</ContentRoot>
 			<Description>
