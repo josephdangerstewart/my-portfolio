@@ -1,6 +1,7 @@
 ---
 title: Campaign Buddy
 shortDescription: Campaign Buddy is an online D&D campaign management platform I developed with a team for my senior cap stone class.
+id: campaign-buddy
 ---
 
 [Lorem ipsum](http://google.com) dolor sit amet, consectetur adipiscing elit. Morbi non lacus ante. Proin luctus ipsum in auctor rhoncus. Morbi a cursus enim. Nulla nec ornare lectus. Fusce non diam vel tellus posuere tristique sodales id nisi. Aliquam volutpat eros non pharetra convallis. Integer sagittis eget dolor sit amet vehicula. Cras quis massa eu arcu luctus congue rhoncus aliquet purus. Sed fringilla sodales bibendum. In ac tristique ante.

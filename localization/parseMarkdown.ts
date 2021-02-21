@@ -10,5 +10,6 @@ export function parseProject(project: string): ILocalizedProject {
 		thumbnailAltText: parsedContent.metadata?.thumbnailAltText ?? '',
 		url: parsedContent.metadata?.url as string ?? null,
 		content: parsedContent.content,
+		id: parsedContent.metadata?.id as string ?? null,
 	};
 }

@@ -5,6 +5,7 @@ export interface ILocalizedProject {
 	url: string;
 	content: string;
 	shortDescription: string;
+	id: string;
 }
 
 export interface ILocalizedSkill {

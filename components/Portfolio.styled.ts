@@ -3,11 +3,13 @@ import styled, { createGlobalStyle } from 'styled-components';
 export const PageBackground = styled.main`
 `;
 
-export const GlobalStyle = createGlobalStyle`
+export const GlobalStyle = createGlobalStyle<{ isProjectOpened: boolean }>`
 	body, html {
 		padding: 0;
 		margin: 0;
 		height: 100%;
+		${({ isProjectOpened }) => isProjectOpened ? 'overflow: hidden;' : ''}
+		overflow-x: hidden;
 	}
 
 	body {

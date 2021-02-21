@@ -1,5 +1,6 @@
-import React, { useState, useCallback, useRef, useEffect } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import { useRouter } from 'next/router';
+import { AnimatePresence } from 'framer-motion';
 import { ILocalizedProject } from '../../localization/localization';
 import {
 	Title,
@@ -11,7 +12,6 @@ import {
 } from './Project.styled';
 import { ProjectContent } from './ProjectContent';
 import { ProjectThumbnail } from './ProjectThumbnail';
-import { AnimatePresence } from 'framer-motion';
 
 interface ProjectProps {
 	project: ILocalizedProject;
@@ -20,22 +20,15 @@ interface ProjectProps {
 export const Project: React.FC<ProjectProps> = ({ project }) => {
 	const router = useRouter();
 	const { projectName } = router.query;
-	const [isOpen, setIsOpen] = useState(project.title === projectName);
-
-	useEffect(() => {
-		if (isOpen) {
-			document.body.style.overflow = 'hidden';
-		} else {
-			document.body.style.overflow = 'auto';
-		}
-	}, [isOpen]);
+	const isInitiallyOpened = projectName?.[0] === project.id;
+	const [isOpen, setIsOpen] = useState(isInitiallyOpened);
 
 	const toggleIsOpen = useCallback(() => {
 		setIsOpen(prev => {
 			const next = !prev;
 
 			if (next) {
-				router.push(`/?projectName=${encodeURIComponent(project.title)}`, undefined, { shallow: true });
+				router.push(`/${project.id}`, undefined, { shallow: true });
 			} else {
 				router.push('/', undefined, { shallow: true });
 			}
@@ -62,7 +55,7 @@ export const Project: React.FC<ProjectProps> = ({ project }) => {
 						{isOpen && (
 							<ProjectContent
 								content={project.content}
-								isInitiallyOpened={project.title === projectName}
+								isInitiallyOpened={isInitiallyOpened}
 							/>
 						)}
 					</AnimatePresence>
