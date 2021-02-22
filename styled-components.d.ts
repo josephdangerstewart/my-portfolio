@@ -20,6 +20,7 @@ declare module 'styled-components' {
 			text: {
 				header: string;
 				body: string;
+				linkHover: string;
 				button: string;
 				input: string;
 				inputPlaceholder: string;

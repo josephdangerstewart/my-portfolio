@@ -1,6 +1,7 @@
 import styled, { createGlobalStyle } from 'styled-components';
 
-export const PageBackground = styled.main`
+export const PageBackground = styled.main<{ isProjectOpened: boolean }>`
+	${({ isProjectOpened }) => isProjectOpened ? 'visibility: hidden;' : ''}
 `;
 
 export const GlobalStyle = createGlobalStyle<{ isProjectOpened: boolean }>`

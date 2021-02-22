@@ -1,5 +1,8 @@
 import React, { useState, useCallback, useMemo, useContext } from 'react';
 import { useRouter } from 'next/router';
+import FocusTrap from 'focus-trap-react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTimesCircle } from '@fortawesome/free-solid-svg-icons';
 import { ThemeContext } from 'styled-components';
 import { AnimatePresence, Variants } from 'framer-motion';
 import { ILocalizedProject } from '../../localization/localization';
@@ -12,9 +15,11 @@ import {
 	ThumbnailTitleContainer,
 	TitleLink,
 	ContentPlaceholder,
+	CloseButton,
 } from './Project.styled';
 import { ProjectContent } from './ProjectContent';
 import { ProjectThumbnail } from './ProjectThumbnail';
+import { useLocalization } from '../hooks';
 
 interface RGB {
 	r: number;
@@ -41,6 +46,13 @@ export function hexToRgba(hex: string, alpha: number): string {
 	return `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, ${alpha})`;
 }
 
+const closeButtonVisible = {
+	opacity: 1,
+};
+
+const closeButtonHidden = {
+	opacity: 0,
+};
 
 interface ProjectProps {
 	project: ILocalizedProject;
@@ -52,6 +64,7 @@ export const Project: React.FC<ProjectProps> = ({ project }) => {
 	const isInitiallyOpened = projectName?.[0] === project.id;
 	const [isOpen, setIsOpen] = useState(isInitiallyOpened);
 	const theme = useContext(ThemeContext);
+	const localization = useLocalization().projectsSection;
 
 	const toggleIsOpen = useCallback((event) => {
 		event.preventDefault();
@@ -81,32 +94,52 @@ export const Project: React.FC<ProjectProps> = ({ project }) => {
 
 	return (
 		<ProjectContainer>
-			<ContentRoot isOpen={isOpen}>
-				<ContentBackground layout variants={backgroundVariants} initial={isInitiallyOpened ? 'open' : 'initial'} animate={isOpen ? 'open' : 'initial'}>
-					<ThumbnailTitleContainer layout>
-						<ProjectThumbnail
-							thumbnailUrl={project.thumbnailUrl}
-							thumbnailAltText={project.thumbnailAltText}
-							url={project.url}
-							isOpen={isOpen}
-							isInitiallyOpen={isInitiallyOpened}
-						/>
-						<Title layout>
-							<TitleLink onClick={toggleIsOpen} href={`/${project.id}`}>
-								{project.title}
-							</TitleLink>
-						</Title>
-					</ThumbnailTitleContainer>
+			<FocusTrap active={isOpen}>
+				<div>
 					<AnimatePresence>
 						{isOpen && (
-							<ProjectContent
-								content={project.content}
-								isInitiallyOpened={isInitiallyOpened}
-							/>
+							<CloseButton 
+								onClick={toggleIsOpen} 
+								href="/"
+								initial={closeButtonHidden}
+								animate={closeButtonVisible}
+								exit={closeButtonHidden}
+								aria-label={localization.closeModal}
+							>
+								<FontAwesomeIcon icon={faTimesCircle} />
+							</CloseButton>
 						)}
 					</AnimatePresence>
-				</ContentBackground>
-			</ContentRoot>
+					<ContentRoot isOpen={isOpen} aria-modal={isOpen ? true : false}>
+						<ContentBackground layout variants={backgroundVariants} initial={isInitiallyOpened ? 'open' : 'initial'} animate={isOpen ? 'open' : 'initial'}>
+							<ThumbnailTitleContainer layout>
+								<ProjectThumbnail
+									thumbnailUrl={project.thumbnailUrl}
+									thumbnailAltText={project.thumbnailAltText}
+									url={project.url}
+									isOpen={isOpen}
+									isInitiallyOpen={isInitiallyOpened}
+								/>
+								<Title layout>
+									{isOpen ? project.title : (
+										<TitleLink onClick={toggleIsOpen} href={`/${project.id}`}>
+											{project.title}
+										</TitleLink>
+									)}
+								</Title>
+							</ThumbnailTitleContainer>
+							<AnimatePresence>
+								{isOpen && (
+									<ProjectContent
+										content={project.content}
+										isInitiallyOpened={isInitiallyOpened}
+									/>
+								)}
+							</AnimatePresence>
+						</ContentBackground>
+					</ContentRoot>
+				</div>
+			</FocusTrap>
 			{isOpen && (
 				<ContentPlaceholder aria-hidden>
 					<ContentBackground>

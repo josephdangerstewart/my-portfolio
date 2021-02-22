@@ -32,6 +32,7 @@ export interface ILocalizedResources {
 		projects: ILocalizedProject[];
 		openExternalLink: string;
 		openExternalLinkAria: string;
+		closeModal: string;
 	},
 	experienceSection: {
 		title: string;

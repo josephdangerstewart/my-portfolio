@@ -17,6 +17,7 @@ export const defaultTheme: DefaultTheme = {
 		text: {
 			header: '#EAEAEC',
 			body: '#FFFFFF',
+			linkHover: '#EBEBEB',
 			button: '#1F1F1F',
 			input: '#1F1F1F',
 			inputPlaceholder: '#778585',

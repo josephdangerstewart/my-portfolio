@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, useState, useCallback } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
 import {
@@ -56,6 +56,10 @@ export const ProjectThumbnail: React.FC<ProjectThumbnailProps> = ({
 	isOpen,
 }) => {
 	const localization = useLocalization().projectsSection;
+	const [isLinkFocused, setIsLinkFocused] = useState(false);
+
+	const onFocus = useCallback(() => setIsLinkFocused(true), []);
+	const onBlur = useCallback(() => setIsLinkFocused(false), []);
 
 	const {
 		initial,
@@ -63,10 +67,10 @@ export const ProjectThumbnail: React.FC<ProjectThumbnailProps> = ({
 		whileHover,
 	} = useMemo(() => {
 		const initial = ['rest'];
-		const animate = ['rest'];
+		const animate = [isLinkFocused ? 'hover' : 'rest'];
 		const whileHover = ['hover'];
 
-		if (isInitiallyOpen && isOpen) {
+		if (isInitiallyOpen) {
 			initial.push('open');
 		}
 
@@ -80,7 +84,7 @@ export const ProjectThumbnail: React.FC<ProjectThumbnailProps> = ({
 			animate,
 			whileHover,
 		};
-	}, [isInitiallyOpen, isOpen]);
+	}, [isInitiallyOpen, isOpen, isLinkFocused]);
 
 	return (
 		<ThumbnailContainer
@@ -97,9 +101,11 @@ export const ProjectThumbnail: React.FC<ProjectThumbnailProps> = ({
 					target="_blank"
 					rel="noopener noreferrer"
 					initial="restIcon"
-					animate="restIcon"
+					animate={isLinkFocused ? 'hoverIcon' : 'restIcon'}
 					whileHover="hoverIcon"
 					aria-label={localization.openExternalLinkAria}
+					onFocus={onFocus}
+					onBlur={onBlur}
 				>
 					<FontAwesomeIcon icon={faExternalLinkAlt} aria-hidden />
 					<ExternalLinkText variants={externalLinkTextVariants} aria-hidden>{localization.openExternalLink}</ExternalLinkText>

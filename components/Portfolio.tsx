@@ -23,7 +23,7 @@ export const Portfolio: React.FC<PortfolioProps> = ({ locale }) => {
 	return (
 		<ThemeProvider theme={defaultTheme}>
 			<LocalizationProvider locale={locale}>
-				<PageBackground>
+				<PageBackground isProjectOpened={isProjectOpened}>
 					<GlobalStyle isProjectOpened={isProjectOpened} />
 					<HeaderSection />
 					<AboutMeSection />

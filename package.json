@@ -13,6 +13,7 @@
     "@fortawesome/free-solid-svg-icons": "^5.15.2",
     "@fortawesome/react-fontawesome": "^0.1.14",
     "@types/styled-components": "^5.1.7",
+    "focus-trap-react": "^8.4.2",
     "framer-motion": "^3.3.0",
     "markdown-yaml-metadata-parser": "^3.0.0",
     "next": "10.0.6",

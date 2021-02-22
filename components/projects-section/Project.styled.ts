@@ -22,6 +22,7 @@ const contentOpenStyles = css`
 
 export const ContentRoot = styled(motion.div)<{ isOpen: boolean }>`
 	${({ isOpen }) => isOpen ? contentOpenStyles : ''}
+	visibility: visible;
 
 	p:last-child {
 		margin-bottom: 0;
@@ -34,6 +35,21 @@ export const ThumbnailTitleContainer = styled(motion.div)`
 
 export const ContentPlaceholder = styled.div`
 	visibility: hidden;
+`;
+
+export const CloseButton = styled(motion.a)`
+	position: fixed;
+	top: 20px;
+	right: 40px;
+	cursor: pointer;
+	font-size: 24px;
+	z-index: 4;
+	color: ${({ theme }) => theme.colors.text.body};
+	visibility: visible;
+
+	&:hover {
+		color: ${({ theme }) => theme.colors.text.linkHover};
+	}
 `;
 
 export const ContentContainer = styled(motion.div)`
