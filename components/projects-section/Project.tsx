@@ -1,8 +1,4 @@
-<<<<<<< Updated upstream
-import React, { useState, useCallback, useEffect } from 'react';
-=======
 import React, { useState, useCallback, useMemo, useContext } from 'react';
->>>>>>> Stashed changes
 import { useRouter } from 'next/router';
 import { ThemeContext } from 'styled-components';
 import { AnimatePresence, Variants } from 'framer-motion';
@@ -14,11 +10,8 @@ import {
 	ContentRoot,
 	ContentBackground,
 	ThumbnailTitleContainer,
-<<<<<<< Updated upstream
-=======
 	TitleLink,
 	ContentPlaceholder,
->>>>>>> Stashed changes
 } from './Project.styled';
 import { ProjectContent } from './ProjectContent';
 import { ProjectThumbnail } from './ProjectThumbnail';
