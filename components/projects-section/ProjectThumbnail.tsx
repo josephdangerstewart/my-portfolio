@@ -38,7 +38,7 @@ const externalLinkTextVariants: Variants = {
 };
 
 const thumbnailContainerVariants: Variants = {
-	initial: {
+	rest: {
 		width: 365,
 		height: 225.5,
 	},
