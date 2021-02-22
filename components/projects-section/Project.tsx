@@ -1,6 +1,11 @@
+<<<<<<< Updated upstream
 import React, { useState, useCallback, useEffect } from 'react';
+=======
+import React, { useState, useCallback, useMemo, useContext } from 'react';
+>>>>>>> Stashed changes
 import { useRouter } from 'next/router';
-import { AnimatePresence } from 'framer-motion';
+import { ThemeContext } from 'styled-components';
+import { AnimatePresence, Variants } from 'framer-motion';
 import { ILocalizedProject } from '../../localization/localization';
 import {
 	Title,
@@ -9,9 +14,40 @@ import {
 	ContentRoot,
 	ContentBackground,
 	ThumbnailTitleContainer,
+<<<<<<< Updated upstream
+=======
+	TitleLink,
+	ContentPlaceholder,
+>>>>>>> Stashed changes
 } from './Project.styled';
 import { ProjectContent } from './ProjectContent';
 import { ProjectThumbnail } from './ProjectThumbnail';
+
+interface RGB {
+	r: number;
+	g: number;
+	b: number;
+}
+
+export function hexToRgb(hex: string): RGB {
+	const normalizedHex = hex.replace(
+		/^#([a-f\d])([a-f\d])([a-f\d])$/ig,
+		(m, r, g, b) => (`#${r + r + g + g + b + b}`),
+	);
+
+	const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(normalizedHex);
+	return result && {
+		r: parseInt(result[1], 16),
+		g: parseInt(result[2], 16),
+		b: parseInt(result[3], 16),
+	};
+}
+
+export function hexToRgba(hex: string, alpha: number): string {
+	const rgb = hexToRgb(hex);
+	return `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, ${alpha})`;
+}
+
 
 interface ProjectProps {
 	project: ILocalizedProject;
@@ -22,6 +58,7 @@ export const Project: React.FC<ProjectProps> = ({ project }) => {
 	const { projectName } = router.query;
 	const isInitiallyOpened = projectName?.[0] === project.id;
 	const [isOpen, setIsOpen] = useState(isInitiallyOpened);
+	const theme = useContext(ThemeContext);
 
 	const toggleIsOpen = useCallback(() => {
 		setIsOpen(prev => {
@@ -37,15 +74,28 @@ export const Project: React.FC<ProjectProps> = ({ project }) => {
 		});
 	}, [router]);
 
+	const backgroundVariants = useMemo<Variants>(() => {
+		return {
+			initial: {
+				backgroundColor: hexToRgba(theme.colors.background, 0),
+			},
+			open: {
+				backgroundColor: hexToRgba(theme.colors.background, 1),
+			}
+		};
+	}, [theme.colors.background]);
+
 	return (
 		<ProjectContainer onClick={toggleIsOpen}>
 			<ContentRoot isOpen={isOpen}>
-				<ContentBackground layout>
+				<ContentBackground layout variants={backgroundVariants} initial={isInitiallyOpened ? 'open' : 'initial'} animate={isOpen ? 'open' : 'initial'}>
 					<ThumbnailTitleContainer layout>
 						<ProjectThumbnail
 							thumbnailUrl={project.thumbnailUrl}
 							thumbnailAltText={project.thumbnailAltText}
 							url={project.url}
+							isOpen={isOpen}
+							isInitiallyOpen={isInitiallyOpened}
 						/>
 						<Title layout>
 							{project.title}
@@ -61,6 +111,26 @@ export const Project: React.FC<ProjectProps> = ({ project }) => {
 					</AnimatePresence>
 				</ContentBackground>
 			</ContentRoot>
+			{isOpen && (
+				<ContentPlaceholder aria-hidden>
+					<ContentBackground>
+						<ThumbnailTitleContainer>
+							<ProjectThumbnail
+								thumbnailUrl={project.thumbnailUrl}
+								thumbnailAltText={project.thumbnailAltText}
+								url={project.url}
+								isOpen={isOpen}
+								isInitiallyOpen={isInitiallyOpened}
+							/>
+							<Title>
+								<TitleLink>
+									{project.title}
+								</TitleLink>
+							</Title>
+						</ThumbnailTitleContainer>
+					</ContentBackground>
+				</ContentPlaceholder>
+			)}
 			<Description>
 				{project.shortDescription}
 			</Description>

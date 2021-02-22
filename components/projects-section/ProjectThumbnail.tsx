@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
 import {
@@ -15,6 +15,8 @@ interface ProjectThumbnailProps {
 	thumbnailUrl: string;
 	thumbnailAltText: string;
 	url: string;
+	isInitiallyOpen?: boolean;
+	isOpen?: boolean;
 }
 
 const externalLinkOverlayVariants: Variants = {
@@ -35,15 +37,59 @@ const externalLinkTextVariants: Variants = {
 	}
 };
 
+const thumbnailContainerVariants: Variants = {
+	initial: {
+		width: 365,
+		height: 225.5,
+	},
+	open: {
+		width: 450,
+		height: 278.1,
+	}
+};
+
 export const ProjectThumbnail: React.FC<ProjectThumbnailProps> = ({
 	thumbnailUrl,
 	thumbnailAltText,
 	url,
+	isInitiallyOpen,
+	isOpen,
 }) => {
 	const localization = useLocalization().projectsSection;
 
+	const {
+		initial,
+		animate,
+		whileHover,
+	} = useMemo(() => {
+		const initial = ['rest'];
+		const animate = ['rest'];
+		const whileHover = ['hover'];
+
+		if (isInitiallyOpen && isOpen) {
+			initial.push('open');
+		}
+
+		if (isOpen) {
+			animate.push('open');
+			whileHover.push('open');
+		}
+
+		return {
+			initial,
+			animate,
+			whileHover,
+		};
+	}, [isInitiallyOpen, isOpen]);
+
 	return (
-		<ThumbnailContainer layout initial="rest" animate="rest" whileHover="hover">
+		<ThumbnailContainer
+			layout
+			initial={initial}
+			animate={animate}
+			whileHover={whileHover}
+			variants={thumbnailContainerVariants}
+		>
 			<Thumbnail layout src={thumbnailUrl} alt={thumbnailAltText} />
 			<ExternalLinkOverlay variants={externalLinkOverlayVariants}>
 				<ExternalLinkIconContainer

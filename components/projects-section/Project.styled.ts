@@ -32,6 +32,10 @@ export const ThumbnailTitleContainer = styled(motion.div)`
 	background-color: ${({ theme }) => theme.colors.background};
 `;
 
+export const ContentPlaceholder = styled.div`
+	visibility: hidden;
+`;
+
 export const ContentContainer = styled(motion.div)`
 	overflow: hidden;
 	width: 90vw;

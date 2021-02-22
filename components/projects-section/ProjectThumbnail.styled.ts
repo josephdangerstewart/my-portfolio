@@ -7,7 +7,7 @@ interface ThumbnailProps {
 
 export const ThumbnailContainer = styled(motion.div)`
 	position: relative;
-	max-width: 365px;
+	width: 365px;
 	height: 225.5px;
 	margin: 0 auto;
 `;
