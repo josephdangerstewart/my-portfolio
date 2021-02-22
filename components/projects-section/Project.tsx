@@ -53,7 +53,8 @@ export const Project: React.FC<ProjectProps> = ({ project }) => {
 	const [isOpen, setIsOpen] = useState(isInitiallyOpened);
 	const theme = useContext(ThemeContext);
 
-	const toggleIsOpen = useCallback(() => {
+	const toggleIsOpen = useCallback((event) => {
+		event.preventDefault();
 		setIsOpen(prev => {
 			const next = !prev;
 
@@ -79,7 +80,7 @@ export const Project: React.FC<ProjectProps> = ({ project }) => {
 	}, [theme.colors.background]);
 
 	return (
-		<ProjectContainer onClick={toggleIsOpen}>
+		<ProjectContainer>
 			<ContentRoot isOpen={isOpen}>
 				<ContentBackground layout variants={backgroundVariants} initial={isInitiallyOpened ? 'open' : 'initial'} animate={isOpen ? 'open' : 'initial'}>
 					<ThumbnailTitleContainer layout>
@@ -91,7 +92,9 @@ export const Project: React.FC<ProjectProps> = ({ project }) => {
 							isInitiallyOpen={isInitiallyOpened}
 						/>
 						<Title layout>
-							{project.title}
+							<TitleLink onClick={toggleIsOpen} href={`/${project.id}`}>
+								{project.title}
+							</TitleLink>
 						</Title>
 					</ThumbnailTitleContainer>
 					<AnimatePresence>
