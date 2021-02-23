@@ -9,6 +9,7 @@ export const ThumbnailContainer = styled(motion.div)`
 	position: relative;
 	width: 365px;
 	height: 225.5px;
+	max-width: 100%;
 	margin: 0 auto;
 `;
 

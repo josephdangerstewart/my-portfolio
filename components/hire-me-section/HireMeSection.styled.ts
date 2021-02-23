@@ -19,6 +19,15 @@ export const TaglineContainer = styled.h3`
 	text-align: center;
 	margin: 24px 0 48px;
 	display: flex;
+	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+
+	& > * {
+		margin-bottom: 16px;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
 `;

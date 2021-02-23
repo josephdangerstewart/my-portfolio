@@ -5,6 +5,7 @@ export const Form = styled.form`
 	flex-direction: column;
 	max-width: 400px;
 	margin: 0 auto;
+	padding: 0 24px;
 `;
 
 const inputCommon = css`

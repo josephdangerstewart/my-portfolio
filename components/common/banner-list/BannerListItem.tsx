@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import {
 	ListItem,
 	HoverTextContainer,
 	HoverText,
 } from './BannerListItem.styled';
-import { Transition, Variants } from 'framer-motion';
+import { Transition, Variants, useCycle } from 'framer-motion';
 
 interface BannerListItemProps {
 	text: string;
@@ -42,9 +42,18 @@ export const BannerListItem: React.FC<BannerListItemProps> = ({
 	hoverText,
 }) => {
 	const ariaLabel = typeof hoverText === 'string' ? `${text} - ${hoverText}` : text;
+	const [animateState, cycleAnimateState] = useCycle('rest', 'hover');
+
+	const handleOnTap = useCallback((event: PointerEvent) => {
+		if (event.pointerType === 'mouse') {
+			return;
+		}
+
+		cycleAnimateState();
+	}, []);
 
 	return (
-		<ListItem initial="rest" animate="rest" whileHover="hover" aria-label={ariaLabel}>
+		<ListItem initial="rest" animate={animateState} whileHover="hover" aria-label={ariaLabel} onTap={handleOnTap}>
 			<p aria-hidden>{text}</p>
 			<HoverTextContainer
 				variants={containerVariants}

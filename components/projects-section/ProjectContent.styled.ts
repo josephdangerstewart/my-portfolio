@@ -11,6 +11,7 @@ export const ContentRoot = styled.div`
 		margin: 52px auto;
 		object-fit: cover;
 		border-radius: 4px;
+		max-width: 100%;
 	}
 
 	p {

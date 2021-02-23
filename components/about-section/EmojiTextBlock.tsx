@@ -1,7 +1,7 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, useCallback } from 'react';
 import { EmojiTextContainer, EmojiTextEmoji, EmojiTextLabel } from './EmojiTextBlock.styled';
 import useDimensions from 'react-use-dimensions';
-import { Variants } from 'framer-motion';
+import { Variants, useCycle } from 'framer-motion';
 
 interface EmojiTextBlockProps {
 	text: string;
@@ -56,11 +56,25 @@ const emojiVariants: Variants = {
 
 const EmojiText: React.FC<EmojiTextProps> = ({ emojiText }) => {
 	const [ref, { width }] = useDimensions({ liveMeasure: false });
+	const [animateState, cycleAnimateState] = useCycle('rest', 'hover');
+
+	const handleOnTap = useCallback((event: PointerEvent) => {
+		if (event.pointerType === 'mouse') {
+			return;
+		}
+
+		cycleAnimateState();
+	}, []);
 
 	const emojiCount = !width ? 1 : Math.max(Math.floor(width / 40), 1);
 
 	return (
-		<EmojiTextContainer initial="rest" animate="rest" whileHover="hover">
+		<EmojiTextContainer
+			initial="rest"
+			animate={animateState}
+			whileHover="hover"
+			onTap={handleOnTap}
+		>
 			<EmojiTextLabel variants={textVariants} ref={ref}>{emojiText.text}</EmojiTextLabel>
 			<EmojiTextEmoji aria-hidden variants={emojiVariants}>{emojiText.emoji.repeat(emojiCount)}</EmojiTextEmoji>
 		</EmojiTextContainer>

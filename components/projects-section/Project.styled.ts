@@ -16,7 +16,7 @@ const contentOpenStyles = css`
 	overflow-x: hidden;
 
 	${ContentBackground} {
-		padding: 20px;
+		padding-bottom: 24px;
 	}
 `;
 
@@ -38,9 +38,9 @@ export const ContentPlaceholder = styled.div`
 `;
 
 export const CloseButton = styled(motion.a)`
-	position: fixed;
+	position: absolute;
 	top: 20px;
-	right: 40px;
+	right: 20px;
 	cursor: pointer;
 	font-size: 24px;
 	z-index: 4;
