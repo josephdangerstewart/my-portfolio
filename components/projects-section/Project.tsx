@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useMemo, useContext } from 'react';
+import React, { useState, useCallback, useMemo, useContext, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import FocusTrap from 'focus-trap-react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -69,7 +69,7 @@ export const Project: React.FC<ProjectProps> = ({ project }) => {
 	const localization = useLocalization().projectsSection;
 
 	const toggleIsOpen = useCallback((event) => {
-		event.preventDefault();
+		event?.preventDefault();
 		setIsOpen(prev => {
 			const next = !prev;
 
@@ -82,6 +82,22 @@ export const Project: React.FC<ProjectProps> = ({ project }) => {
 			return next;
 		});
 	}, [router]);
+
+	useEffect(() => {
+		const cb = (url: string) => {
+			if (url === '/') {
+				setIsOpen(false);
+			} else if (url === `/${project.id}`) {
+				setIsOpen(true);
+			}
+		};
+
+		router.events.on('routeChangeComplete', cb);
+
+		return () => {
+			router.events.off('routeChangeComplete', cb);
+		};
+	}, [setIsOpen, router]);
 
 	const backgroundVariants = useMemo<Variants>(() => {
 		return {
