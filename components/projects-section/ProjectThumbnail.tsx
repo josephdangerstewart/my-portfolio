@@ -4,7 +4,7 @@ import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
 import {
 	Thumbnail,
 	ThumbnailContainer,
-	ExternalLinkOverlay,
+	DesktopExternalLinkOverlay,
 	ExternalLinkIconContainer,
 	ExternalLinkText,
 } from './ProjectThumbnail.styled';
@@ -95,7 +95,7 @@ export const ProjectThumbnail: React.FC<ProjectThumbnailProps> = ({
 			variants={thumbnailContainerVariants}
 		>
 			<Thumbnail layout src={thumbnailUrl} alt={thumbnailAltText} />
-			<ExternalLinkOverlay variants={externalLinkOverlayVariants}>
+			<DesktopExternalLinkOverlay variants={externalLinkOverlayVariants}>
 				<ExternalLinkIconContainer
 					href={url}
 					target="_blank"
@@ -110,7 +110,8 @@ export const ProjectThumbnail: React.FC<ProjectThumbnailProps> = ({
 					<FontAwesomeIcon icon={faExternalLinkAlt} aria-hidden />
 					<ExternalLinkText variants={externalLinkTextVariants} aria-hidden>{localization.openExternalLink}</ExternalLinkText>
 				</ExternalLinkIconContainer>
-			</ExternalLinkOverlay>
+			</DesktopExternalLinkOverlay>
+			
 		</ThumbnailContainer>
 	);
 };

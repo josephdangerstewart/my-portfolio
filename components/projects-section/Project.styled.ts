@@ -17,6 +17,10 @@ const contentOpenStyles = css`
 
 	${ContentBackground} {
 		padding-bottom: 24px;
+
+		${({ theme }) => theme.mediaQueries.desktopOnly} {
+			padding: 20px;
+		}
 	}
 `;
 
@@ -49,6 +53,35 @@ export const CloseButton = styled(motion.a)`
 
 	&:hover {
 		color: ${({ theme }) => theme.colors.text.linkHover};
+	}
+`;
+
+export const ActionBar = styled(motion.div)`
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	max-width: 300px;
+	margin: 0 auto;
+	margin-top: 24px;
+
+	${({ theme }) => theme.mediaQueries.desktopOnly} {
+		flex-direction: row;
+		justify-content: space-between;
+	}
+`;
+
+export const ActionLink = styled.a`
+	font: ${({ theme }) => theme.fonts.body};
+	font-size: 24px;
+	color: ${({ theme }) => theme.colors.text.header};
+	text-decoration: none;
+
+	&:hover {
+		text-decoration: underline;
+	}
+
+	& > svg {
+		margin-right: 8px;
 	}
 `;
 

@@ -33,5 +33,8 @@ declare module 'styled-components' {
 			body: string;
 			computer: string;
 		},
+		mediaQueries: {
+			desktopOnly: string;
+		}
 	}
 }

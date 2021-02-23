@@ -33,6 +33,7 @@ export interface ILocalizedResources {
 		openExternalLink: string;
 		openExternalLinkAria: string;
 		closeModal: string;
+		readMore: string;
 	},
 	experienceSection: {
 		title: string;

@@ -29,5 +29,8 @@ export const defaultTheme: DefaultTheme = {
 		subheader: '600 60px/60px \'Saira Condensed\'',
 		body: '24px \'Saira Condensed\'',
 		computer: '600 20px \'Source Code Pro\'',
+	},
+	mediaQueries: {
+		desktopOnly: '@media (min-width: 840px)',
 	}
 };

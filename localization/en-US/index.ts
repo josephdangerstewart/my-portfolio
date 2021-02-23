@@ -28,6 +28,7 @@ const enUS: ILocalizedResources = {
 		openExternalLink: 'Take a look!',
 		openExternalLinkAria: 'Open project in new tab',
 		closeModal: 'Close modal',
+		readMore: 'Read more',
 	},
 	experienceSection: {
 		title: 'Experience',

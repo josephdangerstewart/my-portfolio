@@ -22,10 +22,15 @@ export const Thumbnail = styled(motion.img)<ThumbnailProps>`
 	height: 100%;
 `;
 
-export const ExternalLinkOverlay = styled(motion.div)`
+export const DesktopExternalLinkOverlay = styled(motion.div)`
 	position: absolute;
 	top: 8px;
 	right: 8px;
+	display: none;
+
+	${({ theme }) => theme.mediaQueries.desktopOnly} {
+		display: block;
+	} 
 `;
 
 export const ExternalLinkIconContainer = styled(motion.a)`

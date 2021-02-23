@@ -30,4 +30,12 @@ export const TaglineContainer = styled.h3`
 			margin-bottom: 0;
 		}
 	}
+
+	${({ theme }) => theme.mediaQueries.desktopOnly} {
+		flex-direction: row;
+
+		& > * {
+			margin-bottom: 0;
+		}
+	}
 `;

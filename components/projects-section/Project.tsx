@@ -2,7 +2,7 @@ import React, { useState, useCallback, useMemo, useContext } from 'react';
 import { useRouter } from 'next/router';
 import FocusTrap from 'focus-trap-react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTimesCircle } from '@fortawesome/free-solid-svg-icons';
+import { faTimesCircle, faExternalLinkAlt, faAngleRight } from '@fortawesome/free-solid-svg-icons';
 import { ThemeContext } from 'styled-components';
 import { AnimatePresence, Variants } from 'framer-motion';
 import { ILocalizedProject } from '../../localization/localization';
@@ -16,6 +16,8 @@ import {
 	TitleLink,
 	ContentPlaceholder,
 	CloseButton,
+	ActionBar,
+	ActionLink,
 } from './Project.styled';
 import { ProjectContent } from './ProjectContent';
 import { ProjectThumbnail } from './ProjectThumbnail';
@@ -163,6 +165,20 @@ export const Project: React.FC<ProjectProps> = ({ project }) => {
 			<Description>
 				{project.shortDescription}
 			</Description>
+			<ActionBar>
+				<ActionLink href={project.url} target="_blank" rel="noopener noreferrer">
+					<FontAwesomeIcon icon={faExternalLinkAlt} />
+					<span>
+						{localization.openExternalLink}
+					</span>
+				</ActionLink>
+				<ActionLink href={`/${project.id}`} onClick={toggleIsOpen}>
+					<FontAwesomeIcon icon={faAngleRight} />
+					<span>
+						{localization.readMore}
+					</span>
+				</ActionLink>
+			</ActionBar>
 		</ProjectContainer>
 	);
 };
