@@ -32,5 +32,7 @@ export const defaultTheme: DefaultTheme = {
 	},
 	mediaQueries: {
 		desktopOnly: '@media (min-width: 840px)',
+		touchDeviceOnly: '@media (hover: none)',
+		mouseDeviceOnly: '@media (hover: hover)',
 	}
 };

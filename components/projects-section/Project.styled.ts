@@ -70,7 +70,7 @@ export const ActionBar = styled(motion.div)`
 	}
 `;
 
-export const ActionLink = styled.a`
+export const ActionLink = styled.a<{ isTouchOnly?: boolean, marginLeft?: string }>`
 	font: ${({ theme }) => theme.fonts.body};
 	font-size: 24px;
 	color: ${({ theme }) => theme.colors.text.header};
@@ -82,6 +82,14 @@ export const ActionLink = styled.a`
 
 	& > svg {
 		margin-right: 8px;
+	}
+
+	${({ isTouchOnly, theme }) => isTouchOnly ? `${theme.mediaQueries.mouseDeviceOnly} {
+		display: none;
+	}` : ''}
+
+	${({ theme }) => theme.mediaQueries.desktopOnly} {
+		${({ marginLeft }) => marginLeft ? `margin-left: ${marginLeft};` : ''}
 	}
 `;
 

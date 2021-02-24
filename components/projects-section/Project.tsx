@@ -182,13 +182,13 @@ export const Project: React.FC<ProjectProps> = ({ project }) => {
 				{project.shortDescription}
 			</Description>
 			<ActionBar>
-				<ActionLink href={project.url} target="_blank" rel="noopener noreferrer">
+				<ActionLink href={project.url} target="_blank" rel="noopener noreferrer" isTouchOnly>
 					<FontAwesomeIcon icon={faExternalLinkAlt} />
 					<span>
 						{localization.openExternalLink}
 					</span>
 				</ActionLink>
-				<ActionLink href={`/${project.id}`} onClick={toggleIsOpen}>
+				<ActionLink href={`/${project.id}`} onClick={toggleIsOpen} marginLeft="auto">
 					<FontAwesomeIcon icon={faAngleRight} />
 					<span>
 						{localization.readMore}

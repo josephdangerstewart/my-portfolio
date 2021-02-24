@@ -35,6 +35,8 @@ declare module 'styled-components' {
 		},
 		mediaQueries: {
 			desktopOnly: string;
+			touchDeviceOnly: string;
+			mouseDeviceOnly: string;
 		}
 	}
 }

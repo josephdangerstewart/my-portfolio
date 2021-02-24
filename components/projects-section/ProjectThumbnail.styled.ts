@@ -26,10 +26,9 @@ export const DesktopExternalLinkOverlay = styled(motion.div)`
 	position: absolute;
 	top: 8px;
 	right: 8px;
-	display: none;
 
-	${({ theme }) => theme.mediaQueries.desktopOnly} {
-		display: block;
+	${({ theme }) => theme.mediaQueries.touchDeviceOnly} {
+		display: none;
 	} 
 `;
 
