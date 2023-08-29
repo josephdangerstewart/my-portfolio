@@ -52,6 +52,11 @@ export const SubmitButton = styled.button`
 	&:active {
 		background: ${({ theme }) => theme.colors.button.backgroundActive};
 	}
+
+	&:disabled {
+		background-color: ${({ theme }) => theme.colors.button.disabled};
+		color: ${({ theme }) => theme.colors.text.buttonDisabled};
+	}
 `;
 
 export const ButtonContainer = styled.div`

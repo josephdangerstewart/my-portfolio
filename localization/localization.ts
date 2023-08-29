@@ -50,6 +50,7 @@ export interface ILocalizedResources {
 		emailPlaceholder: string;
 		descriptionPlaceholder: string;
 		submitButtonText: string;
+		loadingButtonText: string;
 		tagline: {
 			template: string;
 			items: string[];

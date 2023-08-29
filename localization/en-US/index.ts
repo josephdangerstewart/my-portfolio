@@ -74,6 +74,7 @@ const enUS: ILocalizedResources = {
 		emailPlaceholder: 'Email',
 		descriptionPlaceholder: 'Your project idea here...',
 		submitButtonText: 'Submit',
+		loadingButtonText: 'Submitting...',
 		tagline: {
 			template: 'Bring your %ITEM% to life',
 			items: [

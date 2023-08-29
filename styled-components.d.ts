@@ -16,12 +16,14 @@ declare module 'styled-components' {
 				background: string;
 				backgroundActive: string;
 				backgroundHover: string;
+				disabled: string;
 			}
 			text: {
 				header: string;
 				body: string;
 				linkHover: string;
 				button: string;
+				buttonDisabled: string;
 				input: string;
 				inputPlaceholder: string;
 				computer: string;
