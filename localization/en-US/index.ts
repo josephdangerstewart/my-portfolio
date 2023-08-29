@@ -34,7 +34,7 @@ const enUS: ILocalizedResources = {
 		title: 'Experience',
 		experience: [
 			{
-				place: 'FaithLife',
+				place: 'Faithlife',
 				durationString: '2019 - present',
 				position: 'Web Developer',
 			},
