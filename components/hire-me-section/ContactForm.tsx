@@ -30,7 +30,7 @@ export function ContactForm() {
 				body: JSON.stringify({
 					name,
 					email,
-					description: message,
+					message,
 					captchaToken,
 				})
 			});
