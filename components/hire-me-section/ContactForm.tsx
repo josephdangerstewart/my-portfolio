@@ -12,7 +12,7 @@ export function ContactForm() {
 	const [showError, setShowError] = useState(false);
 	const [name, setName, clearName] = useInputState();
 	const [email, setEmail, clearEmail] = useInputState();
-	const [description, setDescription, clearDescription] = useInputState();
+	const [message, setMessage, clearMessage] = useInputState();
 	const [submissionStatus, setSubmissionStatus] = useState<'idle' | 'submitting' | 'success'>('idle');
 
 	const submitForm = useCallback(async (event: React.MouseEvent) => {
@@ -30,7 +30,7 @@ export function ContactForm() {
 				body: JSON.stringify({
 					name,
 					email,
-					description,
+					description: message,
 					captchaToken,
 				})
 			});
@@ -39,7 +39,7 @@ export function ContactForm() {
 				setSubmissionStatus('success');
 				clearName();
 				clearEmail();
-				clearDescription();
+				clearMessage();
 			} else {
 				setSubmissionStatus('idle');
 				setShowError(true);
@@ -48,7 +48,7 @@ export function ContactForm() {
 			setSubmissionStatus('idle');
 			setShowError(true);
 		}
-	}, [name, email, description, showError]);
+	}, [name, email, message, showError]);
 
 	const isFormValid = useMemo(() => Boolean(email && name), [email, name]);
 
@@ -106,8 +106,8 @@ export function ContactForm() {
 							<TextArea
 								placeholder={localization.descriptionPlaceholder}
 								aria-label={localization.descriptionPlaceholder}
-								value={description}
-								onChange={setDescription}
+								value={message}
+								onChange={setMessage}
 							/>
 							<ButtonContainer>
 								<SubmitButton onClick={submitForm} disabled={submissionStatus === 'submitting' || !isFormValid}>
