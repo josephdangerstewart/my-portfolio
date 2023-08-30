@@ -18,7 +18,7 @@ interface LocalizationProviderProps {
 	locale: ILocalizedResources;
 }
 
-export const LocalizationProvider: React.FC<LocalizationProviderProps> = ({
+export const LocalizationProvider: React.FC<React.PropsWithChildren<LocalizationProviderProps>> = ({
 	locale,
 	children,
 }) => (

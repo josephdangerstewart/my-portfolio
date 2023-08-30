@@ -26,7 +26,7 @@ const variants: Variants = {
 	}
 };
 
-const Link: React.FC<{ href: string }> = ({ href, children }) => (
+const Link: React.FC<React.PropsWithChildren<{ href: string }>> = ({ href, children }) => (
 	<a href={href} target="_blank" rel="noopener noreferrer">{children}</a>
 );
 

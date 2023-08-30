@@ -37,13 +37,14 @@ export default async function handler(
 
 	const { captchaToken, ...submission } = request.body as ContactSubmissionRequest;
 
+	configureGoogleAuth();
+
 	const captchaResponse = await validateRecaptcha(captchaToken);
 	if (!captchaResponse.success) {
 		return response.status(403).end();
 	}
 
 	try {
-		configureGoogleAuth();
 		await addSheetData(contactSheet, [{ ...submission, timestamp: new Date().toISOString() }]);
 	} catch {
 		return response.status(500).end();

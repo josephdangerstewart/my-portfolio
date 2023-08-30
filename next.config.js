@@ -21,7 +21,4 @@ module.exports = {
 		loader: 'cloudinary',
 		path: 'https://res.cloudinary.com/josephdangerstewart/'
 	},
-	experimental: {
-		optimizeFonts: true,
-	},
 };
