@@ -1,30 +1,8 @@
 import { NextApiRequest, NextApiResponse } from 'next';
-import { google } from 'googleapis';
-import * as path from 'path';
-import fs from 'fs';
 import { DataSheet } from '../../api/sheetManipulation/types';
 import { validateRecaptcha } from '../../api/validateRecaptcha';
 import { addSheetData } from '../../api/sheetManipulation';
-
-const credentialsPath = path.join(path.resolve('./'), 'googleCreds.json');
-
-if (!fs.existsSync(credentialsPath)) {
-	if (!process.env.GOOGLE_KEY) {
-		throw new Error('Missing google credentials');
-	}
-
-	fs.writeFileSync(credentialsPath, process.env.GOOGLE_KEY, { encoding: 'utf-8' });
-}
-
-const auth = new google.auth.GoogleAuth({
-	keyFile: credentialsPath,
-	scopes: [
-		'https://www.googleapis.com/auth/spreadsheets',
-		'https://www.googleapis.com/auth/cloud-platform',
-	],
-});
-
-google.options({ auth });
+import { configureGoogleAuth } from '../../api/configureGoogleAuth';
 
 interface ContactSubmission extends Record<string, string> {
 	name: string;
@@ -65,6 +43,7 @@ export default async function handler(
 	}
 
 	try {
+		configureGoogleAuth();
 		await addSheetData(contactSheet, [{ ...submission, timestamp: new Date().toISOString() }]);
 	} catch {
 		return response.status(500).end();
