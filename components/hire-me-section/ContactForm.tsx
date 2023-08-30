@@ -1,9 +1,10 @@
 import React, { useCallback, useMemo, useState } from 'react';
-import { useLocalization } from '../hooks';
+import { useLocalization, useInputState, useRecaptcha } from '../hooks';
 import { Form, Input, TextArea, SubmitButton, ButtonContainer } from './ContactForm.styled';
-import { useInputState } from '../hooks/useInputState';
 
 export const ContactForm: React.FC = () => {
+	const { getToken } = useRecaptcha('submit_contact', false);
+
 	const localization = useLocalization().hireMeSection;
 	const [name, setName, clearName] = useInputState();
 	const [email, setEmail, clearEmail] = useInputState();
@@ -14,6 +15,7 @@ export const ContactForm: React.FC = () => {
 		setSubmissionStatus('submitting');
 
 		try {
+			const captchaToken = await getToken();
 			const response = await fetch('/api/contact', {
 				method: 'POST',
 				headers: {
@@ -24,6 +26,7 @@ export const ContactForm: React.FC = () => {
 					name,
 					email,
 					description,
+					captchaToken,
 				})
 			});
 
