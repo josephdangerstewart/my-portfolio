@@ -1,8 +1,8 @@
 import React, { useCallback, useMemo, useState } from 'react';
 import { useLocalization, useInputState, useRecaptcha } from '../hooks';
-import { Form, Input, TextArea, SubmitButton, ButtonContainer } from './ContactForm.styled';
+import { Form, Input, TextArea, SubmitButton, ButtonContainer, SuccessContainer, ContactFormContainer, SuccessTitle, SuccessMessage } from './ContactForm.styled';
 
-export const ContactForm: React.FC = () => {
+export function ContactForm() {
 	const { getToken } = useRecaptcha('submit_contact', false);
 
 	const localization = useLocalization().hireMeSection;
@@ -11,7 +11,8 @@ export const ContactForm: React.FC = () => {
 	const [description, setDescription, clearDescription] = useInputState();
 	const [submissionStatus, setSubmissionStatus] = useState<'idle' | 'submitting' | 'error' | 'success'>('idle');
 
-	const submitForm = useCallback(async () => {
+	const submitForm = useCallback(async (event: React.MouseEvent) => {
+		event.preventDefault();
 		setSubmissionStatus('submitting');
 
 		try {
@@ -46,32 +47,46 @@ export const ContactForm: React.FC = () => {
 	const isFormValid = useMemo(() => Boolean(email && name), [email, name]);
 
 	return (
-		<Form>
-			<Input
-				placeholder={localization.namePlaceholder}
-				aria-label={localization.namePlaceholder}
-				value={name}
-				autoComplete="name"
-				onChange={setName}
-			/>
-			<Input
-				placeholder={localization.emailPlaceholder}
-				aria-label={localization.emailPlaceholder}
-				value={email}
-				autoComplete="email"
-				onChange={setEmail}
-			/>
-			<TextArea
-				placeholder={localization.descriptionPlaceholder}
-				aria-label={localization.descriptionPlaceholder}
-				value={description}
-				onChange={setDescription}
-			/>
-			<ButtonContainer>
-				<SubmitButton onClick={submitForm} disabled={submissionStatus === 'submitting' || !isFormValid}>
-					{submissionStatus === 'submitting' ? localization.loadingButtonText : localization.submitButtonText}
-				</SubmitButton>
-			</ButtonContainer>
-		</Form>
+		<ContactFormContainer>
+			{submissionStatus === 'success' && (
+				<SuccessContainer initial={{ opacity: 0, transform: 'translateY(-10px)' }} animate={{ opacity: 1 }}>
+					<SuccessTitle>{localization.successMessage.title}</SuccessTitle>
+					<SuccessMessage>{localization.successMessage.subtitle}</SuccessMessage>
+				</SuccessContainer>
+			)}
+			<Form
+				key="contact-form"
+				exit={{ opacity: 0 }}
+				animate={{ opacity: submissionStatus === 'success' ? 0 : 1 }}
+				inactive={submissionStatus === 'success'}
+				initial={{ opacity: 1 }}
+			>
+				<Input
+					placeholder={localization.namePlaceholder}
+					aria-label={localization.namePlaceholder}
+					value={name}
+					autoComplete="name"
+					onChange={setName}
+				/>
+				<Input
+					placeholder={localization.emailPlaceholder}
+					aria-label={localization.emailPlaceholder}
+					value={email}
+					autoComplete="email"
+					onChange={setEmail}
+				/>
+				<TextArea
+					placeholder={localization.descriptionPlaceholder}
+					aria-label={localization.descriptionPlaceholder}
+					value={description}
+					onChange={setDescription}
+				/>
+				<ButtonContainer>
+					<SubmitButton onClick={submitForm} disabled={submissionStatus === 'submitting' || !isFormValid}>
+						{submissionStatus === 'submitting' ? localization.loadingButtonText : localization.submitButtonText}
+					</SubmitButton>
+				</ButtonContainer>
+			</Form>
+		</ContactFormContainer>
 	);
 };

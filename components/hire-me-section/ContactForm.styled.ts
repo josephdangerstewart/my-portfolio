@@ -1,11 +1,43 @@
+import { motion } from 'framer-motion';
 import styled, { css } from 'styled-components';
 
-export const Form = styled.form`
+export const ContactFormContainer = styled.div`
+	position: relative;
+`;
+
+export const SuccessTitle = styled.h2`
+	font-size: 48px;
+	text-align: center;
+	margin: 0;
+`;
+
+export const SuccessMessage = styled.p`
+	font-size: 32px;
+	text-align: center;
+	margin: 0;
+`;
+
+export const SuccessContainer = styled(motion.div)`
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 4px;
+	padding: 0 24px;
+`;
+
+export const Form = styled(motion.form)<{ inactive?: boolean }>`
 	display: flex;
 	flex-direction: column;
 	max-width: 400px;
 	margin: 0 auto;
 	padding: 0 24px;
+	${({ inactive }) => inactive && 'pointer-events: none;'}
 `;
 
 const inputCommon = css`

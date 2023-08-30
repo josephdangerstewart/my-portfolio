@@ -22,11 +22,11 @@ export interface ILocalizedExperience {
 export interface ILocalizedResources {
 	headerSection: {
 		computerMessage: string;
-	},
+	}
 	aboutMeSection: {
 		title: string;
 		bio: string;
-	},
+	}
 	projectsSection: {
 		title: string;
 		projects: ILocalizedProject[];
@@ -34,16 +34,16 @@ export interface ILocalizedResources {
 		openExternalLinkAria: string;
 		closeModal: string;
 		readMore: string;
-	},
+	}
 	experienceSection: {
 		title: string;
 		experience: ILocalizedExperience[];
-	},
+	}
 	skillsSection: {
 		title: string;
 		skillTemplate: string;
 		skills: ILocalizedSkill[];
-	},
+	}
 	hireMeSection: {
 		title: string;
 		subtitle: string;
@@ -52,6 +52,10 @@ export interface ILocalizedResources {
 		descriptionPlaceholder: string;
 		submitButtonText: string;
 		loadingButtonText: string;
+		successMessage: {
+			title: string;
+			subtitle: string;
+		}
 		tagline: {
 			template: string;
 			items: string[];

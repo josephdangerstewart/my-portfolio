@@ -84,6 +84,10 @@ const enUS: ILocalizedResources = {
 				'idea',
 				'website',
 			]
+		},
+		successMessage: {
+			title: 'Success!',
+			subtitle: 'Thanks for reaching out!',
 		}
 	}
 };
