@@ -10,7 +10,7 @@ export interface ILocalizedProject {
 
 export interface ILocalizedSkill {
 	skill: string;
-	proficiencyLevel: number;
+	years: number;
 }
 
 export interface ILocalizedExperience {
@@ -41,6 +41,7 @@ export interface ILocalizedResources {
 	},
 	skillsSection: {
 		title: string;
+		skillTemplate: string;
 		skills: ILocalizedSkill[];
 	},
 	hireMeSection: {

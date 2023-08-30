@@ -16,10 +16,10 @@ export const SkillsSection: React.FC = () => {
 			<SectionHeader>{localization.title}</SectionHeader>
 			<ListWrapper>
 				<BannerList>
-					{localization.skills.map(({ skill, proficiencyLevel }) => (
+					{localization.skills.map(({ skill, years }) => (
 						<BannerListItem
 							text={skill}
-							hoverText={`${proficiencyLevel}/5`}
+							hoverText={localization.skillTemplate.replace('%YEARS%', years.toString())}
 							key={skill}
 						/>
 					))}

@@ -52,18 +52,19 @@ const enUS: ILocalizedResources = {
 	},
 	skillsSection: {
 		title: 'Skills',
+		skillTemplate: '%YEARS% years',
 		skills: [
 			{
 				skill: 'C# - Asp.NET',
-				proficiencyLevel: 3,
+				years: 5,
 			},
 			{
 				skill: 'Javascript - ReactJS',
-				proficiencyLevel: 5,
+				years: 7,
 			},
 			{
 				skill: 'SQL',
-				proficiencyLevel: 4,
+				years: 7,
 			}
 		]
 	},
