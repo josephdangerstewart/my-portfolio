@@ -1,8 +1,46 @@
 import { motion } from 'framer-motion';
 import styled, { css } from 'styled-components';
 
+export const ErrorMessageContainerOuter = styled(motion.div)`
+	overflow: hidden;
+	max-width: 400px;
+	margin: 0 auto;
+	padding: 0 24px;
+`;
+
+export const ErrorMessageContainerInner = styled.div`
+	margin-bottom: 24px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+`;
+
+export const ErrorMessage = styled.p`
+	margin: 0;
+	font-size: 20px;
+`;
+
+export const DismissErrorButton = styled(motion.button)`
+	border: none;
+	background: none;
+	cursor: pointer;
+	font-size: 24px;
+	z-index: 4;
+	color: ${({ theme }) => theme.colors.text.body};
+	visibility: visible;
+	height: fit-content;
+
+	&:hover {
+		color: ${({ theme }) => theme.colors.text.linkHover};
+	}
+`;
+
 export const ContactFormContainer = styled.div`
-	position: relative;
+	display: grid;
+`;
+
+export const GridCell = styled.div`
+	grid-area: 1 / 1 / 2 / 2;
 `;
 
 export const SuccessTitle = styled.h2`
@@ -18,11 +56,6 @@ export const SuccessMessage = styled.p`
 `;
 
 export const SuccessContainer = styled(motion.div)`
-	position: absolute;
-	top: 0;
-	left: 0;
-	bottom: 0;
-	right: 0;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -31,13 +64,13 @@ export const SuccessContainer = styled(motion.div)`
 	padding: 0 24px;
 `;
 
-export const Form = styled(motion.form)<{ inactive?: boolean }>`
+export const Form = styled(motion.form)`
 	display: flex;
+	overflow: hidden;
 	flex-direction: column;
 	max-width: 400px;
 	margin: 0 auto;
 	padding: 0 24px;
-	${({ inactive }) => inactive && 'pointer-events: none;'}
 `;
 
 const inputCommon = css`

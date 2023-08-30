@@ -1,15 +1,19 @@
 import React, { useCallback, useMemo, useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTimesCircle } from '@fortawesome/free-solid-svg-icons';
 import { useLocalization, useInputState, useRecaptcha } from '../hooks';
-import { Form, Input, TextArea, SubmitButton, ButtonContainer, SuccessContainer, ContactFormContainer, SuccessTitle, SuccessMessage } from './ContactForm.styled';
+import { Form, Input, TextArea, SubmitButton, ButtonContainer, SuccessContainer, ContactFormContainer, SuccessTitle, SuccessMessage, ErrorMessage, ErrorMessageContainerOuter, DismissErrorButton, ErrorMessageContainerInner, GridCell } from './ContactForm.styled';
+import { AnimatePresence } from 'framer-motion';
 
 export function ContactForm() {
 	const { getToken } = useRecaptcha('submit_contact', false);
 
 	const localization = useLocalization().hireMeSection;
+	const [showError, setShowError] = useState(false);
 	const [name, setName, clearName] = useInputState();
 	const [email, setEmail, clearEmail] = useInputState();
 	const [description, setDescription, clearDescription] = useInputState();
-	const [submissionStatus, setSubmissionStatus] = useState<'idle' | 'submitting' | 'error' | 'success'>('idle');
+	const [submissionStatus, setSubmissionStatus] = useState<'idle' | 'submitting' | 'success'>('idle');
 
 	const submitForm = useCallback(async (event: React.MouseEvent) => {
 		event.preventDefault();
@@ -37,56 +41,83 @@ export function ContactForm() {
 				clearEmail();
 				clearDescription();
 			} else {
-				setSubmissionStatus('error');
+				setSubmissionStatus('idle');
+				setShowError(true);
 			}
 		} catch {
-			setSubmissionStatus('error');
+			setSubmissionStatus('idle');
+			setShowError(true);
 		}
-	}, [name, email, description]);
+	}, [name, email, description, showError]);
 
 	const isFormValid = useMemo(() => Boolean(email && name), [email, name]);
 
 	return (
 		<ContactFormContainer>
 			{submissionStatus === 'success' && (
-				<SuccessContainer initial={{ opacity: 0, transform: 'translateY(-10px)' }} animate={{ opacity: 1 }}>
-					<SuccessTitle>{localization.successMessage.title}</SuccessTitle>
-					<SuccessMessage>{localization.successMessage.subtitle}</SuccessMessage>
-				</SuccessContainer>
+				<GridCell>
+					<SuccessContainer initial={{ opacity: 0, transform: 'translateY(-10px)' }} animate={{ opacity: 1 }}>
+						<SuccessTitle>{localization.successMessage.title}</SuccessTitle>
+						<SuccessMessage>{localization.successMessage.subtitle}</SuccessMessage>
+					</SuccessContainer>
+				</GridCell>
 			)}
-			<Form
-				key="contact-form"
-				exit={{ opacity: 0 }}
-				animate={{ opacity: submissionStatus === 'success' ? 0 : 1 }}
-				inactive={submissionStatus === 'success'}
-				initial={{ opacity: 1 }}
-			>
-				<Input
-					placeholder={localization.namePlaceholder}
-					aria-label={localization.namePlaceholder}
-					value={name}
-					autoComplete="name"
-					onChange={setName}
-				/>
-				<Input
-					placeholder={localization.emailPlaceholder}
-					aria-label={localization.emailPlaceholder}
-					value={email}
-					autoComplete="email"
-					onChange={setEmail}
-				/>
-				<TextArea
-					placeholder={localization.descriptionPlaceholder}
-					aria-label={localization.descriptionPlaceholder}
-					value={description}
-					onChange={setDescription}
-				/>
-				<ButtonContainer>
-					<SubmitButton onClick={submitForm} disabled={submissionStatus === 'submitting' || !isFormValid}>
-						{submissionStatus === 'submitting' ? localization.loadingButtonText : localization.submitButtonText}
-					</SubmitButton>
-				</ButtonContainer>
-			</Form>
+			<GridCell>
+				<AnimatePresence>
+					{showError && submissionStatus !== 'success' && (
+						<ErrorMessageContainerOuter
+							key="error-message"
+							initial={{ height: 0, opacity: 0 }}
+							animate={{ height: 'auto', opacity: 1 }}
+							exit={{ height: 0, opacity: 0 }}
+							transition={{ bounce: 0 }}
+						>
+							<ErrorMessageContainerInner>
+								<ErrorMessage>{localization.errorMessage}</ErrorMessage>
+								<DismissErrorButton
+									onClick={() => setShowError(prev => !prev)}
+									aria-label={localization.dismissError}
+								>
+									<FontAwesomeIcon icon={faTimesCircle} />
+								</DismissErrorButton>
+							</ErrorMessageContainerInner>
+						</ErrorMessageContainerOuter>
+					)}
+					{submissionStatus !== 'success' && (
+						<Form
+							key="contact-form"
+							exit={{ opacity: 0, height: 0 }}
+							initial={{ opacity: 1, height: 'auto' }}
+						>
+							<Input
+								placeholder={localization.namePlaceholder}
+								aria-label={localization.namePlaceholder}
+								value={name}
+								autoComplete="name"
+								onChange={setName}
+							/>
+							<Input
+								placeholder={localization.emailPlaceholder}
+								aria-label={localization.emailPlaceholder}
+								value={email}
+								autoComplete="email"
+								onChange={setEmail}
+							/>
+							<TextArea
+								placeholder={localization.descriptionPlaceholder}
+								aria-label={localization.descriptionPlaceholder}
+								value={description}
+								onChange={setDescription}
+							/>
+							<ButtonContainer>
+								<SubmitButton onClick={submitForm} disabled={submissionStatus === 'submitting' || !isFormValid}>
+									{submissionStatus === 'submitting' ? localization.loadingButtonText : localization.submitButtonText}
+								</SubmitButton>
+							</ButtonContainer>
+						</Form>
+					)}
+				</AnimatePresence>
+			</GridCell>
 		</ContactFormContainer>
 	);
 };

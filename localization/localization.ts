@@ -56,6 +56,8 @@ export interface ILocalizedResources {
 			title: string;
 			subtitle: string;
 		}
+		errorMessage: string;
+		dismissError: string;
 		tagline: {
 			template: string;
 			items: string[];

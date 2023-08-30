@@ -88,7 +88,9 @@ const enUS: ILocalizedResources = {
 		successMessage: {
 			title: 'Success!',
 			subtitle: 'Thanks for reaching out!',
-		}
+		},
+		errorMessage: 'Something went wrong! Please try again later.',
+		dismissError: 'Dismiss error',
 	}
 };
 
