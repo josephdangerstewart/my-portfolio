@@ -33,4 +33,9 @@ export const GlobalStyle = createGlobalStyle<{ isProjectOpened: boolean }>`
 		font: ${({ theme }) => theme.fonts.body};
 		color: ${({ theme }) => theme.colors.text.body};
 	}
+
+	.grecaptcha-badge {
+		visibility: collapse !important;
+		z-index: -100000 !important;
+	}
 `;
