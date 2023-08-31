@@ -18,6 +18,6 @@ Key technologies used:
 * [NGINX](https://www.nginx.com/)
 * [DigitalOcean](https://www.digitalocean.com/)
 
-[hannahcreatesart.com](http://hannahcreatesart.com/) is a my wifes art portfolio account that she designed and I implemented. It features very fast load times, satisfying yet restrained motion design, simple and clean navigation, and elegant show cases of my wifes beautiful work.
+[hannahcreatesart.com](http://hannahcreatesart.com/) is a my wife's art portfolio account that she designed and I implemented. It features very fast load times, satisfying yet restrained motion design, simple and clean navigation, and elegant show cases of my wifes beautiful work.
 
 The site was built on top of NextJS and leverages react spring for smooth animations and style-components for styling. It is deployed to a DigitalOcean droplet which is managed by a terraform configuration. It sits behind an NGINX proxy so I can run other sites from the same node. Content for the site is stored as static yaml files since that was the easiest data storage at the time, it's managed under version control, and my wife can easily ask me to update things for her. Realistically, the content doesn't change much, so a more flexible data storage solution has not proved necessary.

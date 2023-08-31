@@ -10,7 +10,9 @@ export interface ILocalizedProject {
 
 export interface ILocalizedSkill {
 	skill: string;
-	years: number;
+	icon: string;
+	category: string;
+	also?: string;
 }
 
 export interface ILocalizedExperience {

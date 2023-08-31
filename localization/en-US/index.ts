@@ -8,6 +8,11 @@ import weddingWebsite from './content/projects/weddingWebsite.md';
 import landOfEmunah from './content/projects/landOfEmunah.md';
 import hannahsPortfolio from './content/projects/hannahsPortfolio.md';
 
+const skillCategory = {
+	language: 'Languages',
+	framework: 'Frameworks and libraries',
+	tool: 'Tools',
+};
 
 const enUS: ILocalizedResources = {
 	headerSection: {
@@ -54,17 +59,185 @@ const enUS: ILocalizedResources = {
 		title: 'Skills',
 		skillTemplate: '%YEARS% years',
 		skills: [
+			// Languages
 			{
-				skill: 'C# - Asp.NET',
-				years: 5,
+				skill: 'Javascript',
+				category: skillCategory.language,
+				icon: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/JavaScript-logo.png/100px-JavaScript-logo.png',
 			},
 			{
-				skill: 'Javascript - ReactJS',
-				years: 7,
+				skill: 'Typescript',
+				category: skillCategory.language,
+				icon: '',
+			},
+			{
+				skill: 'HTML',
+				category: skillCategory.language,
+				icon: '',
+				also: 'PUG/Handlebars/Liquid'
+			},
+			{
+				skill: 'CSS',
+				category: skillCategory.language,
+				icon: 'Less/Sass',
+			},
+			{
+				skill: 'C#',
+				category: skillCategory.language,
+				icon: '',
 			},
 			{
 				skill: 'SQL',
-				years: 7,
+				category: skillCategory.language,
+				icon: '',
+			},
+			{
+				skill: 'Lua',
+				category: skillCategory.language,
+				icon: '',
+			},
+			{
+				skill: 'Objective-C',
+				category: skillCategory.language,
+				icon: '',
+			},
+			{
+				skill: 'Java',
+				category: skillCategory.language,
+				icon: '',
+			},
+			{
+				skill: 'C++',
+				category: skillCategory.language,
+				icon: '',
+			},
+
+			// Frameworks
+			{
+				skill: 'React',
+				category: skillCategory.framework,
+				icon: '',
+			},
+			{
+				skill: 'Redux',
+				category: skillCategory.framework,
+				icon: '',
+			},
+			{
+				skill: 'react-query',
+				category: skillCategory.framework,
+				icon: '',
+			},
+			{
+				skill: 'testing-library',
+				category: skillCategory.framework,
+				icon: '',
+			},
+			{
+				skill: 'styled-components',
+				category: skillCategory.framework,
+				icon: '',
+			},
+			{
+				skill: 'jest',
+				category: skillCategory.framework,
+				icon: '',
+			},
+			{
+				skill: 'Playwright',
+				category: skillCategory.framework,
+				icon: '',
+				also: 'Selenium',
+			},
+			{
+				skill: 'NextJS',
+				category: skillCategory.framework,
+				icon: '',
+			},
+			{
+				skill: 'ASP.NET',
+				category: skillCategory.framework,
+				icon: '',
+			},
+			{
+				skill: 'NUnit',
+				category: skillCategory.framework,
+				icon: '',
+			},
+			{
+				skill: 'NestJS',
+				category: skillCategory.framework,
+				icon: '',
+			},
+
+			// Tools
+			{
+				skill: 'Visual Studio',
+				category: skillCategory.tool,
+				icon: '',
+			},
+			{
+				skill: 'Visual Studio Code',
+				category: skillCategory.tool,
+				icon: '',
+			},
+			{
+				skill: 'XCode',
+				category: skillCategory.tool,
+				icon: '',
+			},
+			{
+				skill: 'AWS',
+				category: skillCategory.tool,
+				icon: '',
+				also: 'S3/Lambda/CloudFront'
+			},
+			{
+				skill: 'GCP',
+				category: skillCategory.tool,
+				icon: '',
+				also: 'Sheets API/reCAPTCHA',
+			},
+			{
+				skill: 'Azure',
+				category: skillCategory.tool,
+				icon: '',
+				also: 'Functions',
+			},
+			{
+				skill: 'DigitalOcean',
+				category: skillCategory.tool,
+				icon: '',
+			},
+			{
+				skill: 'Terraform',
+				category: skillCategory.tool,
+				icon: '',
+			},
+			{
+				skill: 'Ansible',
+				category: skillCategory.tool,
+				icon: '',
+			},
+			{
+				skill: 'Git',
+				category: skillCategory.tool,
+				icon: '',
+			},
+			{
+				skill: 'Webpack',
+				category: skillCategory.tool,
+				icon: '',
+			},
+			{
+				skill: 'Crowdin',
+				category: skillCategory.tool,
+				icon: '',
+			},
+			{
+				skill: 'Docker',
+				category: skillCategory.tool,
+				icon: '',
 			}
 		]
 	},
