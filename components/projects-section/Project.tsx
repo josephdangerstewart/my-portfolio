@@ -170,9 +170,7 @@ export const Project: React.FC<ProjectProps> = ({ project }) => {
 								isInitiallyOpen={isInitiallyOpened}
 							/>
 							<Title>
-								<TitleLink>
-									{project.title}
-								</TitleLink>
+								{project.title}
 							</Title>
 						</ThumbnailTitleContainer>
 					</ContentBackground>

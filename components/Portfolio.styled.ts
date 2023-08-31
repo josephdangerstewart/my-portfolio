@@ -29,7 +29,7 @@ export const GlobalStyle = createGlobalStyle<{ isProjectOpened: boolean }>`
 		font: ${({ theme }) => theme.fonts.subheader};
 	}
 
-	p {
+	p, li {
 		font: ${({ theme }) => theme.fonts.body};
 		color: ${({ theme }) => theme.colors.text.body};
 	}

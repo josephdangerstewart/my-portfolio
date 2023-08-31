@@ -8,11 +8,11 @@
     "start": "next start"
   },
   "dependencies": {
+    "@emotion/is-prop-valid": "^1.2.1",
     "@fortawesome/fontawesome-svg-core": "^1.2.34",
     "@fortawesome/free-brands-svg-icons": "^5.15.2",
     "@fortawesome/free-solid-svg-icons": "^5.15.2",
     "@fortawesome/react-fontawesome": "^0.1.14",
-    "@types/styled-components": "^5.1.7",
     "focus-trap-react": "^8.4.2",
     "framer-motion": "^3.3.0",
     "googleapis": "^126.0.1",
@@ -23,11 +23,12 @@
     "react-dom": "^18.2.0",
     "react-markdown": "^5.0.3",
     "react-use-dimensions": "^1.2.1",
-    "styled-components": "^5.2.1"
+    "styled-components": "^5.3.9"
   },
   "devDependencies": {
     "@types/node": "^18.0.0",
     "@types/react": "^17.0.0",
+    "@types/styled-components": "^5.1.26",
     "@typescript-eslint/eslint-plugin": "^4.14.2",
     "@typescript-eslint/parser": "^4.14.2",
     "babel-plugin-styled-components": "^1.12.0",

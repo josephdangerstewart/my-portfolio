@@ -3,6 +3,8 @@ import { motion } from 'framer-motion';
 
 export const ContentBackground = styled(motion.div)`
 	background-color: ${({ theme }) => theme.colors.background};
+	box-sizing: border-box;
+	min-height: 100%;
 `;
 
 const contentOpenStyles = css`
