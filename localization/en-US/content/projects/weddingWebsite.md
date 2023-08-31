@@ -11,10 +11,12 @@ id: wedding-announcement
 
 Key technologies used:
 
-* [expressjs](https://expressjs.com/)
-* [gsap](https://greensock.com/gsap/)
-* [typescript](https://www.typescriptlang.org/)
+* [TypeScript](https://www.typescriptlang.org/)
+* [Express](https://expressjs.com/)
+* [GSAP](https://greensock.com/gsap/)
+* [NGINX](https://www.nginx.com/)
+* [DigitalOcean](https://www.digitalocean.com/)
 
-[wearehunnyandthebee.com](http://wearehunnyandthebee.com/) is a site my wife and I designed together to announce our engagement and wedding information. We got engaged and married during 2020 so our in-person celebration was serverly limited. This website was a way for us share our joy with our friends and family digitally. The website features a scrollable animated timeline of my relationship with my wife, Hannah.
+[wearehunnyandthebee.com](http://wearehunnyandthebee.com/) is a site my wife and I designed together to announce our engagement and wedding information. We got engaged and married during 2020 so our in-person celebration was severely limited. This website was a way for us share our joy with our friends and family digitally. The website features a scrollable animated timeline of my relationship with my wife, Hannah.
 
-Technically, this project was interesting to me because I got to expirment more with gsap, a javascript animation library. I used the tool to create the scroll-based image animations, like moving the characters down the page and fading in elements.
+Technically, this project was interesting to me because I got to experiment more with GSAP, a javascript animation library. I used the tool to create the scroll-based image animations, like moving the characters down the page and fading in elements. The site is deployed to a DigitalOcean droplet I have managed under terraform.

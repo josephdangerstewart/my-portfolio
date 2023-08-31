@@ -7,16 +7,30 @@ thumbnailAltText: Land of Emunah welcome/description screen
 id: land-of-emunah
 ---
 
-[Lorem ipsum](http://google.com) dolor sit amet, consectetur adipiscing elit. Morbi non lacus ante. Proin luctus ipsum in auctor rhoncus. Morbi a cursus enim. Nulla nec ornare lectus. Fusce non diam vel tellus posuere tristique sodales id nisi. Aliquam volutpat eros non pharetra convallis. Integer sagittis eget dolor sit amet vehicula. Cras quis massa eu arcu luctus congue rhoncus aliquet purus. Sed fringilla sodales bibendum. In ac tristique ante.
+[Website](http://loe.josephlikescode.com/), [Github Repository](https://github.com/josephdangerstewart/land-of-emunah)
 
-![Test Image](https://picsum.photos/485/300)
+Key technologies used:
 
-Donec aliquam bibendum consectetur. Proin molestie a felis a posuere. Proin iaculis, risus at volutpat laoreet, elit tellus pellentesque augue, sed convallis magna massa a sapien. Integer tempor est at varius ornare. Proin vitae venenatis leo. Mauris eu tristique ex, sed elementum urna. Nunc auctor felis lacus, et blandit justo dictum eget. Curabitur massa tortor, accumsan vitae porttitor sed, eleifend eget ligula. Praesent sodales interdum lorem, et varius elit eleifend ut.
+* [TypeScript](https://www.typescriptlang.org/)
+* [NextJS](https://nextjs.org/)
+* [styled-components](https://styled-components.com/)
+* [Terraform](https://www.terraform.io/)
+* [Ansible](https://www.ansible.com/)
+* [Google Sheets API](https://developers.google.com/sheets/api/guides/concepts)
+* [reCAPTCHA Enterprise](https://cloud.google.com/recaptcha-enterprise)
+* [AWS S3](https://aws.amazon.com/s3/)
+* [DigitalOcean](https://www.digitalocean.com/)
+* [NGINX](https://www.nginx.com/)
+* [Directus](https://directus.io/) (formerly)
+* [Docker](https://www.docker.com/) (formerly)
+* [Cloudinary](https://cloudinary.com/) (formerly)
 
-Cras aliquet erat a odio vulputate, nec condimentum justo tincidunt. In hac habitasse platea dictumst. Nam rutrum, ipsum quis bibendum consectetur, nunc ligula euismod tortor, ut cursus leo magna at tellus. Maecenas ipsum nunc, rutrum et massa at, tincidunt venenatis elit. Phasellus pulvinar finibus magna. Nunc finibus odio quis sem molestie, id laoreet lectus faucibus. Praesent feugiat augue eu semper ornare. Vivamus fringilla vitae ante vitae sollicitudin. Phasellus ut volutpat justo, non viverra est. Nam ut mi sit amet odio laoreet fringilla. Suspendisse fringilla ligula ac sem iaculis, in finibus ante ultrices. Sed efficitur euismod dapibus. Ut augue purus, dignissim id massa vitae, fringilla mollis neque.
+Land of Emunah is my wifes senior art show. Every year, BFA art students at Biola put on a studio show for their capstone class. My wife, Hannah, and her partner, [Megan Yip](https://www.meganyipart.com/), had planned on doing a show around the theme of board games and interactivity. Unfortunately, my wife's senior show was disrupted by the Covid-19 pandemic, which forced Hannah and Megan to plan. Thus was born, Land of Emunah, an interactive branching narrative experience that has you navigating encounters in a mystical fantasy world. The experience culminates in an invitation for the user to contribute their own ideas to the world of Emunah. My role in the project was to bring Hannah and Megan's vision to life.
 
-![Test Image](https://picsum.photos/485/300)
+The site is a fairly straightforward NextJS site using NextJS's built in API capabilities to build the required server functionality, which is mostly just handling form submissions. Styling is handled via styled-components (CSS-in-JS is _awesome_). In subsequent, I've used motion libraries like [react-spring](https://www.react-spring.dev/) and [framer motion](https://www.framer.com/motion/), but in land of emunah, I rolled my own animation functionality with styled components and keyframes (_highly_ recommend either of the mentioned libraries).
 
-Praesent eget pulvinar tortor. Praesent velit ex, facilisis id libero id, condimentum egestas diam. Sed blandit eros sed neque ultrices gravida. Nullam dictum elit turpis, eget convallis tellus tempor sit amet. Cras hendrerit ante orci, eu dapibus purus vulputate vitae. Donec consectetur aliquam magna id placerat. Vivamus at iaculis ipsum. Praesent in gravida enim. Sed pellentesque diam a vulputate commodo. Vestibulum purus est, varius id iaculis et, mollis finibus mi.
+The project is currently deployed to a DigitalOcean droplet provisioned via terraform (which manages all of the cloud resources for this project). It sits behind an NGINX proxy, which is configured by Ansible. I went with Ansible for configuration management because it's agentless which is an especially big advantage for my limited DigitalOcean droplets.
 
-Pellentesque et malesuada lorem. Vestibulum dapibus tempus est quis suscipit. Aliquam venenatis, tellus vel auctor cursus, nunc purus malesuada felis, vel aliquam massa magna eget elit. Mauris eleifend ex nec mi dignissim, non elementum tortor imperdiet. Phasellus in nibh a tellus venenatis posuere eget ut diam. Integer nibh leo, ullamcorper eget volutpat eu, venenatis bibendum tortor. Pellentesque lacus turpis, tristique id leo vel, sagittis auctor purus.
+For content management, I had originally chosen [Directus](https://directus.io/), which is basically a wrapper around a MySQL database, deployed via docker to a DigitalOcean droplet. I had chosen this design because Hannah and Megan had planned on iterating and building on the content in the project. So I wanted them to have easy access to the content without needing to fiddle with git and yaml files or learning SQL while still having structured data to access on the frontend. However, due to cost reasons, and because the project did not see as much iteration as anticipated, I migrated the project away from Directus. Now content for the site lives in yaml files in the repository. This is better because there's less risk of service disruption (Directus took up a lot of memory on my tiny droplet) and the content is now managed in version control.
+
+Prompt and contact submissions were a little bit more complicated to migrate away from Directus, since user submitted content can't be statically stored in yaml files. With Directus, user submissions were written to the Directus database (with file attachments being uploaded to cloudinary). Now, user submissions are uploaded to a google sheet and file attachments are uploaded to S3 (I switched from cloudinary because S3 is easier to manage with terraform). This works great for a small traffic site like Land of Emunah, and uploading to a google sheet has the added bonus of free email notifications.
