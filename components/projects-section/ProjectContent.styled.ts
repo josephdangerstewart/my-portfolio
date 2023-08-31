@@ -4,6 +4,10 @@ export const ContentRoot = styled.div`
 	margin-top: 52px;
 	padding: 0 32px;
 
+	p, a, li {
+		font-size: 28px;
+	}
+
 	img {
 		display: block;
 		width: 450px;
