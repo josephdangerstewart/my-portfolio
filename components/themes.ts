@@ -29,6 +29,7 @@ export const defaultTheme: DefaultTheme = {
 	fonts: {
 		header: '600 72px/70px \'Saira Condensed\'',
 		subheader: '600 60px/60px \'Saira Condensed\'',
+		subsubheader: '600 48px/48px \'Saira Condensed\'',
 		body: '24px \'Saira Condensed\'',
 		computer: '600 20px \'Source Code Pro\'',
 	},

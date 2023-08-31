@@ -32,6 +32,7 @@ declare module 'styled-components' {
 		fonts: {
 			header: string;
 			subheader: string;
+			subsubheader: string;
 			body: string;
 			computer: string;
 		},

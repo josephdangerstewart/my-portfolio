@@ -28,6 +28,10 @@ export const ContentRoot = styled.div`
 		}
 	}
 
+	h3 {
+		font-size: 38px;
+	}
+
 	ul {
 		list-style: none;
 		padding: 0 0 0 80px;

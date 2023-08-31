@@ -29,6 +29,10 @@ export const GlobalStyle = createGlobalStyle<{ isProjectOpened: boolean }>`
 		font: ${({ theme }) => theme.fonts.subheader};
 	}
 
+	h3 {
+		font: ${({ theme }) => theme.fonts.subsubheader};
+	}
+
 	p, li {
 		font: ${({ theme }) => theme.fonts.body};
 		color: ${({ theme }) => theme.colors.text.body};
