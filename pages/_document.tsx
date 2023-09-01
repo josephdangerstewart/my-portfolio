@@ -36,7 +36,6 @@ class MyDocument extends Document {
 				<Head>
 					<script src="https://www.google.com/recaptcha/enterprise.js?render=6Lfcd-UnAAAAAPndSKXBeWYZoFLLIvcfNs06lO88" />
 					<link rel="preconnect" href="https://fonts.gstatic.com" />
-					<link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@400;600&family=Source+Code+Pro:wght@600&display=swap" rel="stylesheet" />
 				</Head>
 				<body>
 					<Main />

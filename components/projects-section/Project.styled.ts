@@ -21,7 +21,7 @@ const contentOpenStyles = css`
 		padding-bottom: 24px;
 
 		${({ theme }) => theme.mediaQueries.desktopOnly} {
-			padding: 20px;
+			padding: 24px;
 		}
 	}
 `;

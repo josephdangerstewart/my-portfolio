@@ -27,11 +27,11 @@ export const defaultTheme: DefaultTheme = {
 		}
 	},
 	fonts: {
-		header: '600 72px/70px \'Saira Condensed\'',
-		subheader: '600 60px/60px \'Saira Condensed\'',
-		subsubheader: '600 48px/48px \'Saira Condensed\'',
-		body: '28px \'Saira Condensed\'',
-		computer: '600 20px \'Source Code Pro\'',
+		header: '600 72px/70px var(--font-saira)',
+		subheader: '600 60px/60px var(--font-saira)',
+		subsubheader: '600 48px/48px var(--font-saira)',
+		body: '28px var(--font-saira)',
+		computer: '600 20px var(--font-source-code)',
 	},
 	mediaQueries: {
 		desktopOnly: '@media (min-width: 840px)',
