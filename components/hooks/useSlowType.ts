@@ -13,7 +13,9 @@ export function useSlowType(message: string, lettersPerSecond: number, startingT
 		setValue((value) => [...value, nextLetter]);
 	}, []);
 
-	useEffect(() => () => isMounted.current = false, []);
+	useEffect(() => () => {
+		isMounted.current = false;
+	}, []);
 
 	useEffect(() => {
 		let timeout: NodeJS.Timeout;
