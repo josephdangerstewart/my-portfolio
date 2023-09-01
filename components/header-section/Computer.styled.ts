@@ -1,14 +1,16 @@
 import styled from 'styled-components';
+import Image from 'next/image';
+import { motion } from 'framer-motion';
 
-export const ComputerContainer = styled.div`
+export const ComputerContainer = styled(motion.div)`
 	width: 90%;
 	max-width: 500px;
 	margin: 0 auto;
 	position: relative;
 `;
 
-export const ComputerImage = styled.img`
-	width: 100%;
+export const ComputerImage = styled(Image)`
+	max-width: 100%;
 	height: auto;
 `;
 

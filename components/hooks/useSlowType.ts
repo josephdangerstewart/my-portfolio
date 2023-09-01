@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef, useCallback } from 'react';
 
-export function useSlowType(message: string, lettersPerSecond: number, startingText = '', delay: number = null): string {
+export function useSlowType(message: string, lettersPerSecond: number, startingText = '', delay: number, enabled: boolean): string {
 	const [value, setValue] = useState(startingText.split(''));
 	const hasWaitedForDelay = useRef(false);
 	const messageRef = useRef(message.split(''));
@@ -18,6 +18,10 @@ export function useSlowType(message: string, lettersPerSecond: number, startingT
 	}, []);
 
 	useEffect(() => {
+		if (!enabled) {
+			return;
+		}
+
 		let timeout: NodeJS.Timeout;
 		const handleTimeout = () => {
 			if (delay && !hasWaitedForDelay.current) {
@@ -40,7 +44,7 @@ export function useSlowType(message: string, lettersPerSecond: number, startingT
 		timeout = setTimeout(handleTimeout, millisecondsBetweenLetters);
 
 		return () => timeout && clearTimeout(timeout);
-	}, [typeLetter, millisecondsBetweenLetters]);
+	}, [typeLetter, millisecondsBetweenLetters, enabled]);
 
 	return value.join('');
 }
