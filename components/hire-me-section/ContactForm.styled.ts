@@ -1,69 +1,6 @@
 import { motion } from 'framer-motion';
 import styled, { css } from 'styled-components';
 
-export const ErrorMessageContainerOuter = styled(motion.div)`
-	overflow: hidden;
-	max-width: 400px;
-	margin: 0 auto;
-	padding: 0 24px;
-`;
-
-export const ErrorMessageContainerInner = styled.div`
-	margin-bottom: 24px;
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-`;
-
-export const ErrorMessage = styled.p`
-	margin: 0;
-	font-size: 20px;
-`;
-
-export const DismissErrorButton = styled(motion.button)`
-	border: none;
-	background: none;
-	cursor: pointer;
-	font-size: 24px;
-	z-index: 4;
-	color: ${({ theme }) => theme.colors.text.body};
-	visibility: visible;
-	height: fit-content;
-
-	&:hover {
-		color: ${({ theme }) => theme.colors.text.linkHover};
-	}
-`;
-
-export const ContactFormContainer = styled.div`
-	display: grid;
-`;
-
-export const GridCell = styled.div`
-	grid-area: 1 / 1 / 2 / 2;
-`;
-
-export const SuccessTitle = styled.h2`
-	font-size: 48px;
-	text-align: center;
-	margin: 0;
-`;
-
-export const SuccessMessage = styled.p`
-	font-size: 32px;
-	text-align: center;
-	margin: 0;
-`;
-
-export const SuccessContainer = styled(motion.div)`
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	gap: 4px;
-	padding: 0 24px;
-`;
-
 export const Form = styled(motion.form)`
 	display: flex;
 	overflow: hidden;
@@ -100,7 +37,7 @@ export const TextArea = styled.textarea`
 	min-height: 100px;
 `;
 
-export const SubmitButton = styled.button`
+export const SubmitButton = styled.a`
 	color: ${({ theme }) => theme.colors.text.button};
 	border: none;
 	font: ${({ theme }) => theme.fonts.body};
@@ -109,6 +46,7 @@ export const SubmitButton = styled.button`
 	cursor: pointer;
 	background-color: ${({ theme }) => theme.colors.button.background};
 	border-radius: 4px;
+	text-decoration: none;
 
 	&:hover {
 		background-color: ${({ theme }) => theme.colors.button.backgroundHover};

@@ -64,5 +64,6 @@ export interface ILocalizedResources {
 			template: string;
 			items: string[];
 		}
+		emailSubject: string;
 	}
 }

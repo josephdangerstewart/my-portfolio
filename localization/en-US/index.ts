@@ -242,7 +242,7 @@ const enUS: ILocalizedResources = {
 		]
 	},
 	hireMeSection: {
-		title: 'Hire Me',
+		title: 'Contact Me',
 		subtitle: 'Or just say hi!',
 		namePlaceholder: 'Name',
 		emailPlaceholder: 'Email',
@@ -264,6 +264,7 @@ const enUS: ILocalizedResources = {
 		},
 		errorMessage: 'Something went wrong! Please try again later.',
 		dismissError: 'Dismiss error',
+		emailSubject: 'Hello from %NAME%!',
 	}
 };
 
